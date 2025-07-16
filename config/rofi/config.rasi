@@ -1,0 +1,114 @@
+* {
+    bg0:    #080809;
+    bg1:    #2A2A2A;
+    bg2:    #3D3D3D80;
+    bg3:    #0099CC;
+    fg0:    #E6E6E6;
+    fg1:    #FFFFFF;
+    fg2:    #969696;
+    fg3:    #3D3D3D;
+    bb:     rgba(12,12,12,75%);
+    se:     rgba(12,12,12,60%);
+    sel:    rgba(0,0,0,90%);
+    bor:    rgba(255,255,255,12%);
+    g-spacing: 10px;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+    font: "Roboto 12";
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+}
+
+window {
+    location: center;
+    width: 350;
+    border: 3px;
+    border-radius: 30px;
+    border-color: transparent;
+    background-color: @bb;
+}
+
+mainbox {
+    padding: 25px;
+    spacing: @g-spacing;
+    children: ["inputbar", "listview", "message"];
+}
+
+inputbar {
+    background-color: @se;
+    border: 2px;
+    border-color: @bg2;
+    border-radius: 40px;
+    padding: 8px 16px;
+    spacing: @g-spacing;
+    children: ["prompt", "entry"];
+}
+
+prompt {
+    text-color: @fg0;
+    width: 28px;
+    text-align: center;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @fg0;
+    expand: true;
+    text-color: @fg0;
+    padding-left: 4px;
+}
+
+listview {
+    background-color: transparent;
+    margin: 12px 0 0 0;
+    lines: 7;
+    columns: 1;
+    fixed-height: true;
+    scrollbar: false;
+    separator-style: none;
+    row-spacing: @g-spacing;
+}
+
+
+element {
+    padding: 8px 16px;
+    spacing: @g-spacing;
+    border-radius: 40px;
+}
+element.normal.normal,
+element.alternate.normal {
+    background-color: transparent;
+}
+element.normal.active,
+element.alternate.active {
+    text-color: @fg0;
+}
+element.selected.normal,
+element.selected.active {
+    background-color: @bor;
+}
+
+element-icon {
+    size: 25px;
+    vertical-align: 2px;
+}
+
+element-text {
+    text-color: @fg0;
+}
+
+message {
+    margin: 12px 0 0 0;
+    padding: 8px 16px;
+    border-radius: 40px;
+    border: 2px;
+    border-color: @bg2;
+    background-color: @bg2;
+}
