@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my personal dotfiles for Arch Linux, heavily inspired by [ml4w dotfiles](https://github.com/ml4w/dotfiles).  
+These are my personal dotfiles for Arch Linux, heavily inspired by [ml4w dotfiles](https://github.com/mylinuxforwork/dotfiles).  
 They should work in most desktop environments, although some tweaks might be necessary depending on your setup.
 
 ---
