@@ -14,15 +14,17 @@ They should work in most desktop environments, although some tweaks might be nec
 
 ## Dependencies
 
-- `kiity`
+- `cosmic`
+- `alacritty`
 - `fastfetch`
-- `rofi`
+- `btop` 
 - `ly`
+- `neovim`
 
 You can install them using:
 
 ```bash
-sudo pacman -S kitty fastfetch rofi ly
+sudo pacman -S cosmic alacritty fastfetch ly neovim
 ```
 
 ---
@@ -37,7 +39,7 @@ cd dotfiles
 
 ### Copy the dotfiles to your config directory
 ```bash
-cp -r ./config/* ~/.config/
+cp -r dotfiles/.config/* ~/.config/
 ```
 
 ### Copy the LY configuration

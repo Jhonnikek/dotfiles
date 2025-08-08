@@ -16,7 +16,7 @@ parse_git_branch() {
     if [[ -n $branch ]]; then
         echo "  $branch"
     fi
-}
+}ñ
 
 pre_prompt_command() {
     _PROMPT_IS_READY=true
