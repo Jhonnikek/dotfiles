@@ -1,14 +1,12 @@
 # Dotfiles
 
-These are my personal dotfiles for Arch Linux, heavily inspired by [ml4w dotfiles](https://github.com/mylinuxforwork/dotfiles).  
-They should work in most desktop environments, although some tweaks might be necessary depending on your setup.
+my personal dotfiles for arch.
 
 ---
 
 ##  Screenshots
-![App Screenshot](./assets/ss1.jpg)
-![App Screenshot](./assets/ss2.jpg)  
-![App Screenshot](./assets/ss3.png) 
+![App Screenshot](./assets/ss.png)
+![App Screenshot](./assets/ss1.png)  
 
 ---
 
@@ -19,12 +17,9 @@ They should work in most desktop environments, although some tweaks might be nec
 - `fastfetch`
 - `btop` 
 - `ly`
-- `neovim`
-
-You can install them using:
 
 ```bash
-sudo pacman -S cosmic alacritty fastfetch ly neovim
+sudo pacman -S cosmic alacritty btop fastfetch ly neovim
 ```
 
 ---
