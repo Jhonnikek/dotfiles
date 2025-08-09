@@ -17,6 +17,7 @@ my personal dotfiles for arch.
 - `fastfetch`
 - `btop` 
 - `ly`
+- `minimon-applet`
 
 ```bash
 sudo pacman -S cosmic alacritty btop fastfetch ly neovim
