@@ -12,16 +12,15 @@ my personal dotfiles for arch.
 
 ## Dependencies
 
-- `cosmic`
+- `cosmic-session`
 - `alacritty`
 - `fastfetch`
 - `btop` 
 - `ly`
 - `minimon-applet`
-
-```bash
-sudo pacman -S cosmic alacritty btop fastfetch ly neovim
-```
+- `ttf-fira-sans`
+- `ttf-fira-code`
+- `ttf-firacode-nerd`
 
 ---
 

@@ -4,14 +4,17 @@
 
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias steam="STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam"
+#alias
+alias steam='STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam'
+alias py='python'
+alias plz='sudo'
 
+#fastfetch
 if [[ $(tty) == *"pts"* ]] && command -v fastfetch &> /dev/null; then
     fastfetch
 fi
 
+#git branch
 parse_git_branch() {
     local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     if [[ -n $branch ]]; then
@@ -35,5 +38,3 @@ PROMPT_COMMAND="pre_prompt_command"
 trap 'pre_exec_clear' DEBUG
 
 PS1='\[\e[37m\]\w\[\e[36m\]$(parse_git_branch)\[\e[0m\]\n\[\e[36m\]➤ \[\e[0m\]'
-
-PATH=~/.console-ninja/.bin:$PATH
