@@ -8,6 +8,9 @@
 alias steam='STEAM_FORCE_DESKTOPUI_SCALING=1.5 steam'
 alias py='python'
 alias plz='sudo'
+alias ls='ls --color=auto'
+export LS_COLORS="di=1;34:ln=1;36:so=35:pi=33:ex=1;32:bd=1;33;41:cd=1;33;41:su=37;41:sg=30;43:tw=30;42:ow=34;42"
+
 
 #fastfetch
 if [[ $(tty) == *"pts"* ]] && command -v fastfetch &> /dev/null; then
