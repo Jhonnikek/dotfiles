@@ -7,17 +7,18 @@ my personal dotfiles for arch.
 ##  Screenshots
 ![App Screenshot](./assets/ss.png)
 ![App Screenshot](./assets/ss1.png)  
+![App Screenshot](./assets/ss2.png)  
 
 ---
 
 ## Dependencies
 
-- `cosmic-session`
+- `ly`
 - `alacritty`
 - `fastfetch`
 - `btop` 
-- `ly`
-- `minimon-applet`
+- `cava`
+- `yazy`
 - `ttf-fira-sans`
 - `ttf-fira-code`
 - `ttf-firacode-nerd`
