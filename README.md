@@ -13,11 +13,10 @@ my personal dotfiles for arch.
 
 ## Dependencies
 
-- `ly`
 - `alacritty`
 - `fastfetch`
 - `btop` 
-- `cava`
+- `rofi`
 - `yazy`
 - `ttf-fira-sans`
 - `ttf-fira-code`
@@ -38,14 +37,5 @@ cd dotfiles
 cp -r dotfiles/.config/* ~/.config/
 ```
 
-### Copy the LY configuration
-```bash
-cd  /etc/ly/config.ini
-```
 
-### Enable LY as your display manager 
-```bash
-systemctl disable DISPLAY_MANAGER
-systemctl enable ly.service
-```
 
