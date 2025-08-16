@@ -38,4 +38,4 @@ PROMPT_COMMAND="pre_prompt_command"
 
 trap 'pre_exec_clear' DEBUG
 
-PS1='[\[\e[97m\]\w\[\e[36m\]$(parse_git_branch)\[\e[0m\]]\n\[\e[94m\]❯\[\e[0m\]'
+PS1='[\[\e[97m\]\w\[\e[36m\]$(parse_git_branch)\[\e[0m\]]\n\[\e[36m\]❯\[\e[0m\]'
