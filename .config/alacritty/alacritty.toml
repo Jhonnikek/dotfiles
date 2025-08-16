@@ -1,14 +1,13 @@
 [font]
-size = 13.0
+size = 12.0
 
 [font.normal]
 family = "FiraCode"
 style = "Regular"
 
 [window]
-dimensions = { columns = 100, lines = 40 }
+dimensions = { columns = 120, lines = 30 }
 opacity = 0.8
-decorations = "none"
 
 [window.padding]
 x = 15
@@ -36,12 +35,3 @@ magenta = "#881798"
 cyan    = "#3a96dd"
 white   = "#cccccc"
 
-[colors.bright]
-black   = "#767676"
-red     = "#e74856"
-green   = "#16c60c"
-yellow  = "#f9f1a5"
-blue    = "#3b78ff"
-magenta = "#b4009e"
-cyan    = "#61d6d6"
-white   = "#f2f2f2"
