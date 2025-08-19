@@ -20,7 +20,7 @@ def aurCache():
     else:
         print("No yay or paru was found.")
 
-def clearHorphans():
+def cleanHorphans():
     try:
         output = subprocess.check_output(["pacman", "-Qdtq"])
         packages = output.decode().splitlines()
@@ -31,11 +31,11 @@ def clearHorphans():
     except subprocess.CalledProcessError:
         print("Theres is no horphans packages")
 
-def clearDocs():
+def cleanDocs():
     subprocess.run(["sudo","rm","-rf", "/usr/share/doc/*"])
     subprocess.run(["sudo","rm","-rf", "/usr/share/info/*"])
 
-def clearThumbnails():
+def cleanThumbnails():
     subprocess.run (["rm", "-rf", "~/.caché/thumbnails/*"])
 
 def updatePacman():
@@ -57,15 +57,15 @@ while options.lower() != "e":
             print("\nDone.\n")
         elif clean.lower() == "h":
             print("\nCleaning horphans...\n")
-            clearHorphans()
+            cleanHorphans()
             print("\nDone.\n")
         elif clean.lower() == "d":
             print("\nCleaning docs...\n")
-            clearDocs()
+            cleanDocs()
             print("\nDone.\n")
         elif clean.lower() == "t":
             print("\nCleaning thumbnails...\n")
-            clearThumbnails()
+            cleanThumbnails()
             print("\nDone.\n")
         else:
             print("error")
