@@ -41,11 +41,11 @@ def clearThumbnails():
 def updatePacman():
     subprocess.run (["sudo", "pacman", "-Syyu", "--noconfirm"])
 
-q = ""
+options = ""
 
-while q.lower() != "e":
-    q = input("What do u want to do?\n[C]lean [U]pdate [E]xit: ")
-    if q.lower() == "c":
+while options.lower() != "e":
+    options = input("What do u want to do?\n[C]lean [U]pdate [E]xit: ")
+    if options.lower() == "c":
         clean = input("What do u want to clean?\n[P]acman [A]ur [H]orphans [D]ocs [T]humbnails: ")
         if clean.lower() == "p":
             print("\nCleaning pacman cache...\n")
@@ -69,12 +69,12 @@ while q.lower() != "e":
             print("\nDone.\n")
         else:
             print("error")
-    elif q.lower() == "u":
+    elif options.lower() == "u":
         print("\nUpdating...\n")
         updatePacman()
         print("\nDone.\n")
-    elif q.lower() == "e":
+    elif options.lower() == "e":
         print("\nLeaving...\n")
         break
     else:
-        print("error")
+        print("That is not a valid option.")
