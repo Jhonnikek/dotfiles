@@ -26,8 +26,6 @@ def cleanHorphans():
         packages = output.decode().splitlines()
         if packages:
             subprocess.run(["sudo", "pacman", "-Rns"] + packages)
-        else:
-            print("Theres is no horphans packages")
     except subprocess.CalledProcessError:
         print("Theres is no horphans packages")
 
@@ -40,41 +38,36 @@ def cleanThumbnails():
 
 def updatePacman():
     subprocess.run (["sudo", "pacman", "-Syyu", "--noconfirm"])
-
-options = ""
-
-while options.lower() != "e":
-    options = input("What do u want to do?\n[C]lean [U]pdate [E]xit: ")
-    if options.lower() == "c":
-        clean = input("What do u want to clean?\n[P]acman [A]ur [H]orphans [D]ocs [T]humbnails: ")
-        if clean.lower() == "p":
-            print("\nCleaning pacman cache...\n")
-            pacmanCache()
-            print("\nDone.\n")
-        elif clean.lower() == "a":
-            print("\nCleaning aur cache...\n")
-            aurCache()
-            print("\nDone.\n")
-        elif clean.lower() == "h":
-            print("\nCleaning horphans...\n")
-            cleanHorphans()
-            print("\nDone.\n")
-        elif clean.lower() == "d":
-            print("\nCleaning docs...\n")
-            cleanDocs()
-            print("\nDone.\n")
-        elif clean.lower() == "t":
-            print("\nCleaning thumbnails...\n")
-            cleanThumbnails()
-            print("\nDone.\n")
+        
+def main():
+    while True:
+        try:
+            print("...System Maintenance...")
+            print("1.Clean\n2.Update\n3.Exit")
+            options = input("What do you want to do?: ")
+            if options== "1":
+                try:
+                    print("1.Pacman cache\n2.Aur cache\n3.Horphans\n4.Docs\n5·Thumbnails")
+                    clean = input("What do you want to clean?: ")
+                    if clean== "1":
+                        pacmanCache()
+                    elif clean== "2":
+                        aurCache()
+                    elif clean== "3":
+                        cleanHorphans()
+                    elif clean== "4":
+                        cleanDocs()
+                    elif clean== "5":
+                        cleanThumbnails()
+                except ValueError:
+                    print("That is not a valid option.") 
+            elif options== "2":
+                updatePacman()
+            elif options== "3":
+                print("Leaving...")
+                break
+        except ValueError:
+            print("That is not a valid option.")
         else:
-            print("error")
-    elif options.lower() == "u":
-        print("\nUpdating...\n")
-        updatePacman()
-        print("\nDone.\n")
-    elif options.lower() == "e":
-        print("\nLeaving...\n")
-        break
-    else:
-        print("That is not a valid option.")
+            print("Done!.")
+main()
