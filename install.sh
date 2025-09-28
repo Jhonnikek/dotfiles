@@ -1,24 +1,4 @@
 #!/bin/bash
-
-# ##################################################################
-# Arch Linux Post-Installation and Configuration Script
-#
-# Author: Gemini (with user collaboration)
-# Date: 2025-09-26
-#
-# Purpose:
-#   - Create symbolic links for user and system-wide dotfiles.
-#   - Install packages via pacman, AUR, and Flatpak.
-#   - Enable system services (systemd).
-#
-# Usage:
-#   1. Clone your dotfiles repository.
-#   2. Ensure this script is in the root of the repo.
-#   3. Grant execute permissions: chmod +x install.sh
-#   4. Run it: ./install.sh
-# ##################################################################
-
-# --- SECURITY AND COLORS ---
 set -e
 
 # Colors for terminal output
