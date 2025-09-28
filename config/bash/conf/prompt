@@ -1,0 +1,22 @@
+# Función para obtener la rama actual de Git
+parse_git_branch() {
+    local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [[ -n $branch ]]; then
+        echo "  $branch"
+    fi
+}
+
+pre_prompt_command() {
+    _PROMPT_IS_READY=true
+}
+PROMPT_COMMAND="pre_prompt_command"
+
+pre_exec_clear() {
+    if [ -n "$_PROMPT_IS_READY" ]; then
+        unset _PROMPT_IS_READY
+        clear
+    fi
+}
+trap 'pre_exec_clear' DEBUG
+
+PS1='[\[\e[97m\]\w\[\e[36m\]$(parse_git_branch)\[\e[0m\]]\n\[\e[36m\]❯\[\e[0m\]'

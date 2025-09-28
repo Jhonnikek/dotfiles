@@ -1,0 +1,14 @@
+# General
+alias py='python'
+alias plz='sudo'
+alias ls='ls --color=auto'
+alias lsa='ls -a'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ff='fastfetch'
+
+# Git
+alias g='git'
+alias gcm='git commit -m'
+alias ga='git add'
