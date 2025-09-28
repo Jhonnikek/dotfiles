@@ -32,7 +32,7 @@ PACMAN_PACKAGES=(
     ly power-profiles-daemon
     alacritty btop fastfetch bat lsd fzf nvim pacman-contrib
     rofi-wayland dolphin ark gwenview okular
-    mangohud ufw steam flatpak less git openssh
+    mangohud ufw steam flatpak less git openssh ttf-fira-sans ttf-fira-code ttf-firacode-nerd
 )
 
 AUR_PACKAGES=(
