@@ -30,9 +30,9 @@ error() {
 PACMAN_PACKAGES=(
     nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
     ly power-profiles-daemon
-    alacritty btop fastfetch bat lsd fzf nvim yazi pacman-contrib
+    alacritty btop fastfetch bat lsd fzf nvim pacman-contrib
     rofi-wayland dolphin ark gwenview okular
-    mangohud ufw steam flatpak
+    mangohud ufw steam flatpak less git openssh
 )
 
 AUR_PACKAGES=(
@@ -78,7 +78,7 @@ if [[ ! "$CONFIRM" =~ ^[yY]$ ]]; then
 fi
 
 # --- 1. SYSTEM PREPARATION ---
-msg "Phase 1: Preparing the system..."
+msg "Preparing the system..."
 msg "Updating system with pacman..."
 sudo pacman -Syu --noconfirm
 
@@ -94,10 +94,10 @@ fi
 msg "Installing dependencies for building AUR packages (git, base-devel)..."
 sudo pacman -S --needed --noconfirm git base-devel
 
-success "Phase 1 completed."
+success "completed."
 
 # --- 2. USER-LEVEL SYMBOLIC LINKS ---
-msg "Phase 2: Creating user-level symbolic links..."
+msg "Creating user-level symbolic links..."
 
 # Define paths
 SOURCE_CONFIG_DIR="$(pwd)/config"
@@ -159,10 +159,10 @@ for item in "$SOURCE_CONFIG_DIR"/*; do
     ln -s "$source_path" "$dest_path"
     msg "Symbolic link created: $dest_path -> $source_path"
 done
-success "Phase 2 completed."
+success "completed."
 
 # --- 3. SYSTEM-WIDE SYMBOLIC LINKS ---
-msg "Phase 3: Creating system-wide symbolic links (requires sudo)..."
+msg "Creating system-wide symbolic links (requires sudo)..."
 
 # --- Handle ly configuration ---
 SOURCE_LY_CONFIG="$(pwd)/config/ly/config.ini"
@@ -182,10 +182,10 @@ if [ -f "$SOURCE_LY_CONFIG" ]; then
 else
     warn "Ly configuration file not found at '$SOURCE_LY_CONFIG'. Skipping."
 fi
-success "Phase 3 completed."
+success "completed."
 
 # --- 4. INSTALL YAY (AUR HELPER) ---
-msg "Phase 4: Installing the AUR helper 'yay'..."
+msg "Installing the AUR helper 'yay'..."
 if command -v yay &> /dev/null; then
     msg "'yay' is already installed. Skipping."
 else
@@ -197,10 +197,10 @@ else
     rm -rf /tmp/yay
     msg "'yay' installed successfully."
 fi
-success "Phase 4 completed."
+success " completed."
 
 # --- 5. PACKAGE INSTALLATION ---
-msg "Phase 5: Installing all defined packages..."
+msg "Installing all defined packages..."
 
 msg "Installing packages from official repositories with pacman..."
 sudo pacman -S --needed --noconfirm "${PACMAN_PACKAGES[@]}"
@@ -211,10 +211,10 @@ yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
 msg "Installing applications from Flathub with Flatpak..."
 flatpak install -y --noninteractive flathub "${FLATPAK_PACKAGES[@]}"
 
-success "Phase 5 completed."
+success "completed."
 
 # --- 6. SERVICE CONFIGURATION ---
-msg "Phase 6: Enabling system services..."
+msg "Enabling system services..."
 
 OTHER_FIREWALL_ACTIVE=false
 if systemctl is-active --quiet firewalld; then
@@ -234,7 +234,7 @@ for service in "${SERVICES_TO_ENABLE[@]}"; do
     sudo systemctl enable "$service"
 done
 
-success "Phase 6 completed."
+success "completed."
 
 # --- FINALIZATION ---
 echo
