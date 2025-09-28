@@ -17,7 +17,6 @@ my personal dotfiles for arch.
 - `fastfetch`
 - `btop` 
 - `rofi`
-- `yazy`
 - `ttf-fira-sans`
 - `ttf-fira-code`
 - `ttf-firacode-nerd`
@@ -32,9 +31,9 @@ git clone https://github.com/yourusername/dotfiles.git
 cd dotfiles
 ```
 
-### Copy the dotfiles to your config directory
+### Run the installation file
 ```bash
-cp -r dotfiles/.config/* ~/.config/
+./install.sh
 ```
 
 
