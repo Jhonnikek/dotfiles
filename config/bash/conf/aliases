@@ -21,8 +21,6 @@ alias von='source venv/bin/activate'
 alias voff='deactivate'
 alias prun='python3 manage.py runserver' #django
 
-
-
 # Git
 alias g='git'
 alias gcm='git commit -m'
@@ -31,4 +29,3 @@ alias gs='git status'
 alias glg='git log'
 alias gp='git push'
 alias gpl='git pull'
-alias om='origin main'
