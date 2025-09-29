@@ -52,7 +52,7 @@ FLATPAK_PACKAGES=(
 
 SERVICES_TO_ENABLE=(
     power-profiles-daemon.service
-    ly.service
+    #ly.service
     ufw.service
 )
 

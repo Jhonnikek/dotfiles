@@ -1,5 +1,4 @@
 # General
-alias py='python3'
 alias plz='sudo'
 alias ls='ls --color=auto'
 alias lsa='ls -a'
@@ -8,6 +7,20 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='fastfetch'
 alias cn='./clean.sh'
+alias vsc='code .'
+alias nv='nvim'
+
+#python
+alias py='python'
+alias pi='pip install'
+alias pu='pip uninstall'
+alias pf='pip freeze > requirements.txt'
+alias pir='pip install -r requirements.txt'
+alias venv='python3 -m venv venv'
+alias von='source venv/bin/activate'
+alias voff='deactivate'
+alias prun='python3 manage.py runserver' #django
+
 
 
 # Git
@@ -17,3 +30,5 @@ alias ga='git add'
 alias gs='git status'
 alias glg='git log'
 alias gp='git push'
+alias gpl='git pull'
+alias om='origin main'
