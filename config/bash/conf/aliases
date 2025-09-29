@@ -7,19 +7,25 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='fastfetch'
 alias cn='./clean.sh'
-alias vsc='code .'
+alias vsc='code'
 alias nv='nvim'
 
-#python
+#Python
 alias py='python'
+alias prun='python3 manage.py runserver' # For Django
+alias pytest='python3 -m pytest'
+
+# Pip Package Management
 alias pi='pip install'
+alias pir='pip install -r requirements.txt'
 alias pu='pip uninstall'
 alias pf='pip freeze > requirements.txt'
-alias pir='pip install -r requirements.txt'
+alias pl='pip list'
+
+# venv
 alias venv='python3 -m venv venv'
 alias von='source venv/bin/activate'
 alias voff='deactivate'
-alias prun='python3 manage.py runserver' #django
 
 # Git
 alias g='git'
