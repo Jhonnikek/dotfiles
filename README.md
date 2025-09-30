@@ -7,7 +7,7 @@ my personal dotfiles for arch.
 ##  Screenshots
 
 ![App Screenshot](./assets/ss1.png)  
-![App Screenshot](./assets/ss2.png)  
+  
 
 ---
 
