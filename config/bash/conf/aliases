@@ -1,4 +1,5 @@
-# General
+# === Bash Aliases ===
+
 alias plz='sudo'
 alias ls='ls --color=auto'
 alias lsa='ls -a'
@@ -7,10 +8,25 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='fastfetch'
 alias cn='./clean.sh'
-alias vsc='code'
-alias nv='nvim'
 
-#Python
+# === Arch Aliases ===
+
+# Pacman
+alias update='sudo pacman -Syu'
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rns'
+alias search='pacman -Ss'
+alias clean='sudo pacman -Scc'
+
+# AUR Helper (e.g., yay)
+alias yupdate='yay -Syu'
+alias yinstall='yay -S'
+alias yremove='yay -Rns'
+alias yclean='yay -Scc'
+
+# === Python Aliases ===
+
+# Running code
 alias py='python'
 alias prun='python3 manage.py runserver' # For Django
 alias pytest='python3 -m pytest'
@@ -27,7 +43,8 @@ alias venv='python3 -m venv venv'
 alias von='source venv/bin/activate'
 alias voff='deactivate'
 
-# Git
+# === Git Aliases ===
+
 alias g='git'
 alias gcm='git commit -m'
 alias ga='git add'
