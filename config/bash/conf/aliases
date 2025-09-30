@@ -18,7 +18,7 @@ alias remove='sudo pacman -Rns'
 alias search='pacman -Ss'
 alias clean='sudo pacman -Scc'
 
-# AUR Helper (e.g., yay)
+# Yay
 alias yupdate='yay -Syu'
 alias yinstall='yay -S'
 alias yremove='yay -Rns'
