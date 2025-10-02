@@ -44,10 +44,10 @@ AUR_PACKAGES=(
 )
 
 FLATPAK_PACKAGES=(
-  net.lutris.Lris
+  net.lutris.Lutris
   com.heroicgameslauncher.hgl
   com.github.Matoking.protontricks
-  app.zen_browser.zen
+  
 )
 
 SERVICES_TO_ENABLE=(
