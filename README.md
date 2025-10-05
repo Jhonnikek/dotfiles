@@ -1,13 +1,6 @@
 # Dotfiles
 
-my personal dotfiles for arch.
-
----
-
-##  Screenshots
-
-![App Screenshot](./assets/ss1.png)  
-  
+My personal dotfiles for arch.
 
 ---
 
