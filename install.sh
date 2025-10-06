@@ -30,7 +30,7 @@ error() {
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   ly power-profiles-daemon
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git hypland hyprshot slurp grim satty kvantum
+  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git hypland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprshot slurp grim satty wl-clipboard mako kvantum
   rofi-wayland dolphin ark gwenview okular haruna elisa
   mangohud ufw steam discord flatpak 
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd
