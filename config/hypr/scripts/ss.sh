@@ -1,7 +1,7 @@
 #!/bin/bash
 
 [[ -f ~/.config/user-dirs.dirs ]] && source ~/.config/user-dirs.dirs
-OUTPUT_DIR="${SS_DIR:-${XDG_PICTURES_DIR:-$HOME/Pictures/Screenshots}}"
+OUTPUT_DIR="$HOME/Pictures/Screenshots"
 
 mkdir -p "$OUTPUT_DIR"
 
