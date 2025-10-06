@@ -30,13 +30,15 @@ error() {
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   ly power-profiles-daemon
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib
-  rofi-wayland dolphin ark gwenview okular
-  mangohud ufw steam flatpak less git openssh ttf-fira-sans ttf-fira-code ttf-firacode-nerd
+  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git hypland hyprshot slurp grim satty kvantum
+  rofi-wayland dolphin ark gwenview okular haruna elisa
+  mangohud ufw steam discord flatpak 
+  ttf-fira-sans ttf-fira-code ttf-firacode-nerd
 )
 
 AUR_PACKAGES=(
   visual-studio-code-bin
+  heroic-games-launcher-bin
   # --- ASUS-specific tools ---
   # If you don't have an ASUS laptop, comment or remove the following two lines
   asusctl
@@ -45,8 +47,7 @@ AUR_PACKAGES=(
 
 FLATPAK_PACKAGES=(
   net.lutris.Lutris
-  com.heroicgameslauncher.hgl
-  com.github.Matoking.protontricks
+  com.vysp3r.ProtonPlus
   
 )
 

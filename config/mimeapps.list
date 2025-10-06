@@ -1,0 +1,37 @@
+# --- PDFs ---
+# MIME Type: application/pdf
+# Application: org.kde.okular.desktop
+xdg-mime default org.kde.okular.desktop application/pdf
+
+# ---  Web (links and HTML files) ---
+# MIME Type: text/html y x-scheme-handler/https
+# Aplicación: firefox.desktop
+xdg-mime default firefox.desktop text/html
+xdg-mime default firefox.desktop x-scheme-handler/http
+xdg-mime default firefox.desktop x-scheme-handler/https
+
+# --- Pictures (JPG, PNG, GIF) ---
+# MIME Types: image/jpeg, image/png, image/gif
+# Aplicación: Gwenview (org.kde.gwenview.desktop) o la que prefieras
+xdg-mime default org.kde.gwenview.desktop image/jpeg
+xdg-mime default org.kde.gwenview.desktop image/png
+xdg-mime default org.kde.gwenview.desktop image/gif
+
+# --- Videos ---
+# MIME Types: video/mp4, video/x-matroska (mkv)
+# Aplicación: org.kde.haruna.desktop 
+xdg-mime default org.kde.haruna.desktop video/mp4
+xdg-mime default org.kde.haruna.desktop video/x-matroska
+
+# --- Music (MP3, FLAC, OGG, WAV) ---
+# MIME Types: audio/mpeg, audio/flac, audio/ogg, audio/x-wav
+# Application: org.kde.elisa.desktop
+xdg-mime default org.kde.elisa.desktop audio/mpeg
+xdg-mime default org.kde.elisa.desktop audio/flac
+xdg-mime default org.kde.elisa.desktop audio/ogg
+xdg-mime default org.kde.elisa.desktop audio/x-wav
+
+# --- Dirs ---
+# MIME Type: inode/directory
+# Aplicación: org.kde.dolphin.desktop
+xdg-mime default org.kde.dolphin.desktop inode/directory
