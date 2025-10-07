@@ -30,10 +30,10 @@ error() {
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   ly power-profiles-daemon brightnessctl
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh 
-  hyprland hyprpaper hyprlock hypridle  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland hyprshot slurp grim satty wl-clipboard mako kvantum
+  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh
+  hyprland hyprpaper hyprlock hypridle  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland hyprshot slurp grim satty wl-clipboard mako kvantum python-pywal
   rofi-wayland dolphin ark gwenview okular haruna elisa firefox
-  mangohud ufw steam discord flatpak 
+  mangohud ufw steam discord flatpak
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
 )
 
@@ -49,7 +49,7 @@ AUR_PACKAGES=(
 FLATPAK_PACKAGES=(
   net.lutris.Lutris
   com.vysp3r.ProtonPlus
-  
+
 )
 
 SERVICES_TO_ENABLE=(
@@ -149,8 +149,8 @@ for item in "$SOURCE_CONFIG_DIR"/*; do
   config_name=$(basename "$item")
 
   # Skip directories handled separately
-  if [[ "$config_name" == "ly" ]]; then
-    msg "Skipping 'config/$config_name' directory for now (handled as system-wide)."
+  if [[ "$config_name" == "ly" || "$config_name" == "cursors" ]]; then
+    msg "Skipping '$config_name' for separate handling."
     continue
   fi
 
@@ -165,6 +165,33 @@ for item in "$SOURCE_CONFIG_DIR"/*; do
   ln -s "$source_path" "$dest_path"
   msg "Symbolic link created: $dest_path -> $source_path"
 done
+
+# --- Handle cursor themes ---
+SOURCE_CURSORS_DIR="$(pwd)/config/cursors"
+DEST_ICONS_DIR="$HOME/.icons"
+
+if [ -d "$SOURCE_CURSORS_DIR" ]; then
+    msg "Processing cursor theme links..."
+    mkdir -p "$DEST_ICONS_DIR"
+
+    for theme_path in "$SOURCE_CURSORS_DIR"/*; do
+        if [ -d "$theme_path" ]; then # Ensure we only link directories
+            theme_name=$(basename "$theme_path")
+            dest_path="$DEST_ICONS_DIR/$theme_name"
+
+            if [ -e "$dest_path" ] || [ -L "$dest_path" ]; then
+                warn "Existing cursor theme found at '$dest_path'. Moving it to '${dest_path}.bak'."
+                mv "$dest_path" "${dest_path}.bak"
+            fi
+
+            ln -s "$theme_path" "$dest_path"
+            msg "Symbolic link created for cursor theme: $dest_path -> $theme_path"
+        fi
+    done
+else
+    warn "Cursors directory not found at '$SOURCE_CURSORS_DIR'. Skipping cursor theme setup."
+fi
+
 success "completed."
 
 # --- 3. SYSTEM-WIDE SYMBOLIC LINKS ---
@@ -254,4 +281,3 @@ if [[ "$REBOOT_CONFIRM" =~ ^[yY]$ ]]; then
 fi
 
 exit 0
-
