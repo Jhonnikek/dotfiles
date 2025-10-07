@@ -29,11 +29,12 @@ error() {
 # --- PACKAGE LISTS ---
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
-  ly power-profiles-daemon
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git hypland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprshot slurp grim satty wl-clipboard mako kvantum
-  rofi-wayland dolphin ark gwenview okular haruna elisa
+  ly power-profiles-daemon brightnessctl
+  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh 
+  hyprland hyprpaper hyprlock hypridle  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland hyprshot slurp grim satty wl-clipboard mako kvantum
+  rofi-wayland dolphin ark gwenview okular haruna elisa firefox
   mangohud ufw steam discord flatpak 
-  ttf-fira-sans ttf-fira-code ttf-firacode-nerd
+  ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
 )
 
 AUR_PACKAGES=(
@@ -53,7 +54,7 @@ FLATPAK_PACKAGES=(
 
 SERVICES_TO_ENABLE=(
   power-profiles-daemon.service
-  #ly.service
+  ly.service
   ufw.service
 )
 

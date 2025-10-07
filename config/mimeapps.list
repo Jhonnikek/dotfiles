@@ -14,6 +14,7 @@ xdg-mime default firefox.desktop x-scheme-handler/https
 # MIME Types: image/jpeg, image/png, image/gif
 # Aplicación: Gwenview (org.kde.gwenview.desktop) 
 xdg-mime default org.kde.gwenview.desktop image/jpeg
+xdg-mime default org.kde.gwenview.desktop image/jpg
 xdg-mime default org.kde.gwenview.desktop image/png
 xdg-mime default org.kde.gwenview.desktop image/gif
 
