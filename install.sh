@@ -32,7 +32,7 @@ PACMAN_PACKAGES=(
   ly power-profiles-daemon brightnessctl
   alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh 
   hyprland hyprpaper hyprlock hypridle hyprshot xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard mako kvantum-qt5 breeze-icons
-  firefox rofi-wayland dolphin ark slurp grim satty jq pavucontrol swayosd waybar
+  firefox rofi-wayland nautilus slurp grim satty jq pavucontrol swayosd waybar
   mangohud ufw steam discord flatpak 
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
 )
@@ -56,6 +56,8 @@ SERVICES_TO_ENABLE=(
   power-profiles-daemon.service
   ly.service
   ufw.service
+  asusd.service
+  swayosd-libinput-backend.service
 )
 
 # --- START OF SCRIPT ---
