@@ -29,11 +29,11 @@ error() {
 # --- PACKAGE LISTS ---
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
-  ly power-profiles-daemon brightnessctl
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh 
-  hyprland hyprpaper hyprlock hypridle hyprshot xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard mako kvantum-qt5 breeze-icons
-  firefox rofi-wayland nautilus slurp grim satty jq pavucontrol swayosd waybar
-  mangohud ufw steam discord flatpak 
+  ly power-profiles-daemon brightnessctl playerctl ncdu
+  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh nodejs npm 
+  hyprland hyprpaper hyprlock hypridle hyprshot xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard kvantum-qt5 breeze-icons
+  firefox rofi-wayland nautilus slurp grim satty jq pavucontrol blueberry mako swayosd waybar
+  mangohud ufw steam lutris discord flatpak prismlauncher
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
 )
 
@@ -47,9 +47,11 @@ AUR_PACKAGES=(
 )
 
 FLATPAK_PACKAGES=(
-  net.lutris.Lutris
+  #net.lutris.Lutris
   com.vysp3r.ProtonPlus
-  
+  #com.heroicgameslauncher.hgl
+  #org.prismlauncher.PrismLauncher
+  #com.visualstudio.code
 )
 
 SERVICES_TO_ENABLE=(
