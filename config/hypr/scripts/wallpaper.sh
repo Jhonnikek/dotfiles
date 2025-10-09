@@ -7,4 +7,5 @@ CURRENT_WALL=$(hyprctl hyprpaper listloaded)
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
 # Apply the selected wallpaper
-hyprctl hyprpaper reload ,"$WALLPAPER"
+
+hyprctl hyprpaper reload ,"$WALLPAPER" 
