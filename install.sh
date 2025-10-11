@@ -30,9 +30,12 @@ error() {
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   ly power-profiles-daemon brightnessctl playerctl ncdu
-  alacritty btop fastfetch bat lsd fzf nvim lazygit pacman-contrib less git openssh nodejs npm 
-  hyprland hyprpaper hyprlock hypridle hyprshot xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard kvantum-qt5 breeze-icons
-  firefox rofi-wayland nautilus slurp grim satty jq pavucontrol blueberry mako swayosd waybar
+  alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql 
+  hyprland hyprpaper hyprlock hypridle hyprpicker
+  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct 
+  qt5-wayland qt6-wayland wl-clipboard kvantum-qt5 breeze-icons
+  firefox rofi-wayland nautilus grim jq pavucontrol blueberry 
+  mako flameshot swayosd waybar
   mangohud ufw steam lutris discord flatpak prismlauncher
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
 )
@@ -79,8 +82,7 @@ done 2>/dev/null &
 warn "This script will perform the following actions:"
 echo "  - Create symbolic links for your dotfiles, backing up existing files."
 echo "  - Update the system and enable the [multilib] repository."
-echo "  - Install packages from pacman, AUR, and Flatpak."
-echo "  - Enable system services like ufw."
+echo "  - Optionally, install packages and enable system services."
 echo
 read -p "Are you sure you want to continue? (y/N): " CONFIRM
 if [[ ! "$CONFIRM" =~ ^[yY]$ ]]; then
@@ -104,7 +106,7 @@ fi
 msg "Installing dependencies for building AUR packages (git, base-devel)..."
 sudo pacman -S --needed --noconfirm git base-devel
 
-success "completed."
+success "System preparation completed."
 
 # --- 2. USER-LEVEL SYMBOLIC LINKS ---
 msg "Creating user-level symbolic links..."
@@ -169,7 +171,7 @@ for item in "$SOURCE_CONFIG_DIR"/*; do
   ln -s "$source_path" "$dest_path"
   msg "Symbolic link created: $dest_path -> $source_path"
 done
-success "completed."
+success "User-level symbolic links completed."
 
 # --- 3. SYSTEM-WIDE SYMBOLIC LINKS ---
 msg "Creating system-wide symbolic links (requires sudo)..."
@@ -192,63 +194,72 @@ if [ -f "$SOURCE_LY_CONFIG" ]; then
 else
   warn "Ly configuration file not found at '$SOURCE_LY_CONFIG'. Skipping."
 fi
-success "completed."
+success "System-wide symbolic links completed."
+echo
 
-# --- 4. INSTALL YAY (AUR HELPER) ---
-msg "Installing the AUR helper 'yay'..."
-if command -v yay &>/dev/null; then
-  msg "'yay' is already installed. Skipping."
-else
-  git clone https://aur.archlinux.org/yay.git /tmp/yay
-  (
-    cd /tmp/yay
-    makepkg -si --noconfirm
-  )
-  rm -rf /tmp/yay
-  msg "'yay' installed successfully."
-fi
-success " completed."
+read -p "Symbolic links are set up. Do you want to install packages and enable services now? (y/N): " INSTALL_PACKAGES
 
-# --- 5. PACKAGE INSTALLATION ---
-msg "Installing all defined packages..."
+if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
 
-msg "Installing packages from official repositories with pacman..."
-sudo pacman -S --needed --noconfirm "${PACMAN_PACKAGES[@]}"
+  # --- 4. INSTALL YAY (AUR HELPER) ---
+  msg "Installing the AUR helper 'yay'..."
+  if command -v yay &>/dev/null; then
+    msg "'yay' is already installed. Skipping."
+  else
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    (
+      cd /tmp/yay
+      makepkg -si --noconfirm
+    )
+    rm -rf /tmp/yay
+    msg "'yay' installed successfully."
+  fi
+  success "AUR helper check completed."
 
-msg "Installing packages from AUR with yay..."
-yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+  # --- 5. PACKAGE INSTALLATION ---
+  msg "Installing all defined packages..."
 
-msg "Installing applications from Flathub with Flatpak..."
-flatpak install -y --noninteractive flathub "${FLATPAK_PACKAGES[@]}"
+  msg "Installing packages from official repositories with pacman..."
+  sudo pacman -S --needed --noconfirm "${PACMAN_PACKAGES[@]}"
 
-success "completed."
+  msg "Installing packages from AUR with yay..."
+  yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
 
-# --- 6. SERVICE CONFIGURATION ---
-msg "Enabling system services..."
+  msg "Installing applications from Flathub with Flatpak..."
+  flatpak install -y --noninteractive flathub "${FLATPAK_PACKAGES[@]}"
 
-OTHER_FIREWALL_ACTIVE=false
-if systemctl is-active --quiet firewalld; then
-  warn "firewalld está activo. Se omitirá la activación del servicio ufw."
-  OTHER_FIREWALL_ACTIVE=true
-elif systemctl is-active --quiet nftables; then
-  warn "nftables está activo. Se omitirá la activación del servicio ufw."
-  OTHER_FIREWALL_ACTIVE=true
-fi
+  success "Package installation completed."
 
-for service in "${SERVICES_TO_ENABLE[@]}"; do
-  if [[ "$service" == "ufw.service" && "$OTHER_FIREWALL_ACTIVE" == true ]]; then
-    continue
+  # --- 6. SERVICE CONFIGURATION ---
+  msg "Enabling system services..."
+
+  OTHER_FIREWALL_ACTIVE=false
+  if systemctl is-active --quiet firewalld; then
+    warn "firewalld is active. Skipping ufw service."
+    OTHER_FIREWALL_ACTIVE=true
+  elif systemctl is-active --quiet nftables; then
+    warn "nftables is active. Skipping ufw service."
+    OTHER_FIREWALL_ACTIVE=true
   fi
 
-  msg "Enabling service: $service"
-  sudo systemctl enable "$service"
-done
+  for service in "${SERVICES_TO_ENABLE[@]}"; do
+    if [[ "$service" == "ufw.service" && "$OTHER_FIREWALL_ACTIVE" == true ]]; then
+      continue
+    fi
 
-success "completed."
+    msg "Enabling service: $service"
+    sudo systemctl enable "$service"
+  done
+
+  success "Service configuration completed."
+
+else
+  warn "Skipping package installation and service configuration."
+fi
 
 # --- FINALIZATION ---
 echo
-success "All done! The script has finished installation and configuration."
+success "All done! The script has finished."
 warn "It is highly recommended to reboot your system for all changes to take effect."
 read -p "Do you want to reboot now? (y/N): " REBOOT_CONFIRM
 if [[ "$REBOOT_CONFIRM" =~ ^[yY]$ ]]; then
@@ -258,4 +269,3 @@ if [[ "$REBOOT_CONFIRM" =~ ^[yY]$ ]]; then
 fi
 
 exit 0
-
