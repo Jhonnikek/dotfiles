@@ -10,12 +10,14 @@
     bb:     rgba(12,12,12,75%);
     se:     rgba(12,12,12,60%);
     sel:    rgba(0,0,0,90%);
-    bor:    rgba(255,255,255,12%);
-    g-spacing: 10px;
+    bor:    rgba(255,255,255,50%);
+
+    g-spacing: 8px; 
+
     margin: 0;
     padding: 0;
     spacing: 0;
-    font: "Roboto 12";
+    font: "Caskaydia Cove Nerd Font 12";
     background-color: transparent;
     text-color: @fg0;
 }
@@ -24,29 +26,30 @@ configuration {
     modi: "drun";
     show-icons: true;
     display-drun: "";
+    drun-display-format: "{name}";
 }
 
 window {
     location: center;
-    width: 350;
-    border: 3px;
-    border-radius: 30px;
+    width: 500px; 
+    border: 2px;  
+    border-radius: 1px; 
     border-color: @bor;
     background-color: @bb;
 }
 
 mainbox {
-    padding: 25px;
+    padding: 15px; 
     spacing: @g-spacing;
     children: ["inputbar", "listview", "message"];
 }
 
 inputbar {
     background-color: @se;
-    border: 2px;
-    border-color: @bg2;
-    border-radius: 40px;
-    padding: 8px 16px;
+    border: 1px; 
+    border-color: @bor;
+    border-radius: 1px; 
+    padding: 8px 12px;
     spacing: @g-spacing;
     children: ["prompt", "entry"];
 }
@@ -67,21 +70,22 @@ entry {
 
 listview {
     background-color: transparent;
-    margin: 12px 0 0 0;
-    lines: 7;
+    margin: 10px 0 0 0; 
+    lines: 5; 
     columns: 1;
     fixed-height: true;
     scrollbar: false;
     separator-style: none;
     row-spacing: @g-spacing;
+    border: 0px;
 }
-
 
 element {
-    padding: 8px 16px;
+    padding: 8px 12px;
     spacing: @g-spacing;
-    border-radius: 40px;
+    border-radius: 1px; 
 }
+
 element.normal.normal,
 element.alternate.normal {
     background-color: transparent;
@@ -92,7 +96,9 @@ element.alternate.active {
 }
 element.selected.normal,
 element.selected.active {
-    background-color: @bor;
+    background-color: transparent; 
+    border: 1px solid;        
+    border-color: @bor;        
 }
 
 element-icon {
@@ -105,10 +111,8 @@ element-text {
 }
 
 message {
-    margin: 12px 0 0 0;
-    padding: 8px 16px;
-    border-radius: 40px;
-    border: 2px;
-    border-color: @bg2;
-    background-color: @bg2;
+    border: 0px;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
