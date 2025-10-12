@@ -30,14 +30,14 @@ error() {
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   ly power-profiles-daemon brightnessctl playerctl ncdu
-  alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql 
+  alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
   hyprland hyprpaper hyprlock hypridle hyprpicker
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct 
   qt5-wayland qt6-wayland wl-clipboard kvantum-qt5 breeze-icons
   firefox rofi-wayland nautilus grim jq pavucontrol blueberry 
   mako flameshot swayosd waybar
   mangohud ufw steam lutris discord flatpak prismlauncher
-  ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome
+  ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome ttf-cascadia-code-nerd
 )
 
 AUR_PACKAGES=(
@@ -63,6 +63,7 @@ SERVICES_TO_ENABLE=(
   ufw.service
   asusd.service
   swayosd-libinput-backend.service
+  docker.service
 )
 
 # --- START OF SCRIPT ---
