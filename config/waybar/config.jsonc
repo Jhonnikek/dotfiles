@@ -12,95 +12,95 @@
       "format": "{icon}",
       "format-icons": {
           "default": "",
-          "active": ""
+          "active": "󰮯"
       },
       "persistent-workspaces": {
         "1": [], "2": [], "3": [], "4": [], "5": []
     }
   },
 
-      "custom/arch": {
-          "format": "<span></span>",
-          "on-click": "rofi -show drun"
-      },
+  "custom/arch": {
+      "format": "<span></span>",
+      "on-click": "rofi -show drun"
+  },
 
-      "clock":{
-        "format": "  {:%H:%M}",
-        "format-alt": "  {:%A, %d de %B}"
-      },
+  "clock":{
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "  {:%A, %B %d}"
+  },
 
-      "tray":{
-        "icon-size": 16,
-        "spacing": 10
-      },
+  "tray":{
+    "icon-size": 16,
+    "spacing": 10
+  },
 
-      "bluetooth": {
-        "format": " {status}",
-        "format-on": "󰂯",
-        "format-off": "󰂲",
-        "format-disabled": "󰂲",
-        "format-connected": "󰂱",
-        "tooltip-format-connected": "Connected to {device_alias}",
-        "on-click": "blueberry"
-      },
+  "bluetooth": {
+    "format": " {status}",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "tooltip-format-connected": "Connected to {device_alias}",
+    "on-click": "blueberry"
+  },
 
-      "network":{
-        "format": "{icon}", 
-        "format-wifi": "{icon}", 
-        "format-ethernet": "󰈀",   
-        "format-disconnected": "󰤮", 
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],  
-        "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": "Connected to {ifname}",
-        "tooltip-format-disconnected": "Offline",
-        "on-click": "nm-connection-editor" 
-      },
+  "network":{
+    "format": "{icon}", 
+    "format-wifi": "{icon}", 
+    "format-ethernet": "󰒪",   
+    "format-disconnected": "󰤮", 
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],  
+    "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "Connected to {ifname}",
+    "tooltip-format-disconnected": "Offline",
+    "on-click": "nm-connection-editor" 
+  },
 
-      "pulseaudio":{
-        "format": "{icon}",
-        "format-muted": "󰖁", 
-        "on-click": "pavucontrol",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-        "tooltip-format":"Volume at {volume}%",
-        "format-icons": {
-              "headset": "󰋎",
-              "default": ["", "", ""] 
-          }
-      },
-
-      "power-profiles-daemon":{
-        "format": "{icon}",
-        "format-performance": "󰊗 Performance",
-        "format-balanced": " Balanced",
-        "format-power-saver": " Power Saver",
-        "tooltip": true,
-        "tooltip-format": "Profile: {profile}",
-        "format-icons": {
-          "performance": "󰊗",
-          "balanced": "",
-          "power-saver": ""
-        }
-      },
-
-      "battery":{
-        "states": {
-          "warning": 30,
-          "critical": 15
-        },
-        "format": "{icon}",
-        "format-charging": "{icon}", 
-        "format-plugged": "",  
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁", "󰂂", "󰁹"],
-        "format-charging-icons": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂅"],
-        "tooltip-format":"{capacity}% - {time} left",
-        "tooltip-format-charging": "Charging {capacity}% - {time} left",
-        "tooltip-format-plugged": "Plugged {capacity}%"
-      },
-
-      "custom/exit": {
-        "format": "",
-        "on-click": "wlogout",
-        "tooltip": false
+  "pulseaudio":{
+    "format": "{icon}",
+    "format-muted": "󰖁", 
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip-format":"Volume at {volume}%",
+    "format-icons": {
+          "headset": "󰋎",
+          "default": ["", "", ""] 
       }
+  },
+
+  "power-profiles-daemon":{
+    "format": "{icon}",
+    "format-performance": "󰊗 Performance",
+    "format-balanced": " Balanced",
+    "format-power-saver": " Power Saver",
+    "tooltip": true,
+    "tooltip-format": "Profile: {profile}",
+    "format-icons": {
+      "performance": "",
+      "balanced": "󰈐",
+      "power-saver": ""
+    }
+  },
+
+  "battery":{
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}",
+    "format-charging": "{icon}", 
+    "format-plugged": "",  
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁", "󰂂", "󰁹"],
+    "format-charging-icons": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂅"],
+    "tooltip-format":"{capacity}% - {time} left",
+    "tooltip-format-charging": "Charging {capacity}% - {time} left",
+    "tooltip-format-plugged": "Plugged {capacity}%"
+  },
+
+  "custom/exit": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
 }
