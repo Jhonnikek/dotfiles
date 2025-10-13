@@ -20,7 +20,7 @@ My personal dotfiles for arch.
 
 ### First clone the repo
 ```bash
-git clone https://github.com/yourusername/dotfiles.git
+git clone https://github.com/Jhonnikek/dotfiles.git
 cd dotfiles
 ```
 
