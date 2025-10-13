@@ -99,7 +99,7 @@
 
   "custom/exit": {
     "format": "",
-    "on-click": "",
-    "tooltip": false
+    "on-click": "wleave",
+    "tooltip-format": "wleave\nSuper + Esc"
   }
 }
