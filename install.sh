@@ -41,7 +41,7 @@ PACMAN_PACKAGES=(
 )
 
 AUR_PACKAGES=(
-  visual-studio-code-bin
+  #visual-studio-code-bin
   heroic-games-launcher-bin
   # --- ASUS-specific tools ---
   # If you don't have an ASUS laptop, comment or remove the following two lines
@@ -54,7 +54,7 @@ FLATPAK_PACKAGES=(
   com.vysp3r.ProtonPlus
   #com.heroicgameslauncher.hgl
   #org.prismlauncher.PrismLauncher
-  #com.visualstudio.code
+  com.visualstudio.code
 )
 
 SERVICES_TO_ENABLE=(
