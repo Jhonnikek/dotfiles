@@ -5,7 +5,7 @@
   "height": 30,
   "modules-left": ["custom/arch","hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray","bluetooth", "network", "pulseaudio", "battery", "custom/exit"],
+  "modules-right": ["tray","bluetooth", "network", "pulseaudio","power-profiles-daemon", "battery", "custom/exit"],
 
   "hyprland/workspaces": {
       "on-click": "activate",
@@ -26,8 +26,7 @@
 
       "clock":{
         "format": "  {:%H:%M}",
-        "format-alt": "  {:%A, %d de %B}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format-alt": "  {:%A, %d de %B}"
       },
 
       "tray":{
@@ -37,11 +36,11 @@
 
       "bluetooth": {
         "format": " {status}",
-        "format-on": "",
-        "format-off": "",
-        "format-disabled": "",
-        "format-connected": "",
-        "tooltip-format": "Connected to {device_alias}",
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip-format-connected": "Connected to {device_alias}",
         "on-click": "blueberry"
       },
 
@@ -70,17 +69,32 @@
           }
       },
 
+      "power-profiles-daemon":{
+        "format": "{icon}",
+        "format-performance": "󰊗 Performance",
+        "format-balanced": " Balanced",
+        "format-power-saver": " Power Saver",
+        "tooltip": true,
+        "tooltip-format": "Profile: {profile}",
+        "format-icons": {
+          "performance": "󰊗",
+          "balanced": "",
+          "power-saver": ""
+        }
+      },
+
       "battery":{
         "states": {
           "warning": 30,
           "critical": 15
         },
-        "format": "{icon}   {capacity}%",
-        "format-charging": "󰂄", 
+        "format": "{icon}",
+        "format-charging": "{icon}", 
         "format-plugged": "",  
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "tooltip-format-charging": "Charging {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁", "󰂂", "󰁹"],
+        "format-charging-icons": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂅"],
+        "tooltip-format":"{capacity}% - {time} left",
+        "tooltip-format-charging": "Charging {capacity}% - {time} left",
         "tooltip-format-plugged": "Plugged {capacity}%"
       },
 
