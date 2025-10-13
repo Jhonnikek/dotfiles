@@ -61,7 +61,11 @@ workspaces button {
   opacity: 1; 
 }
 
-#clock {
+#bluetooth, #battery{
+  font-size:16px;
+}
+
+#clock{
     font-weight: bold;
 }
 

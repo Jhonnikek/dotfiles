@@ -25,8 +25,8 @@
   },
 
   "clock":{
-    "format": "󰥔  {:%H:%M}",
-    "format-alt": "  {:%A, %B %d}"
+    "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d}"
   },
 
   "tray":{
@@ -35,7 +35,7 @@
   },
 
   "bluetooth": {
-    "format": " {status}",
+    "format": "󰂯 {status}",
     "format-on": "󰂯",
     "format-off": "󰂲",
     "format-disabled": "󰂲",
@@ -64,8 +64,7 @@
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip-format":"Volume at {volume}%",
     "format-icons": {
-          "headset": "󰋎",
-          "default": ["", "", ""] 
+          "default": ["", "","","", "", "", "", "", ""] 
       }
   },
 
@@ -90,7 +89,7 @@
     },
     "format": "{icon}",
     "format-charging": "{icon}", 
-    "format-plugged": "",  
+    "format-plugged": "󰚥",  
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁", "󰂂", "󰁹"],
     "format-charging-icons": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂅"],
     "tooltip-format":"{capacity}% - {time} left",
@@ -100,7 +99,7 @@
 
   "custom/exit": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "",
     "tooltip": false
   }
 }
