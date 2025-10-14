@@ -29,7 +29,7 @@ error() {
 # --- PACKAGE LISTS ---
 PACMAN_PACKAGES=(
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
-  ly power-profiles-daemon brightnessctl playerctl ncdu
+  power-profiles-daemon brightnessctl playerctl ncdu
   alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
   hyprland hyprpaper hyprlock hypridle hyprpicker
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct 
@@ -59,7 +59,7 @@ FLATPAK_PACKAGES=(
 
 SERVICES_TO_ENABLE=(
   power-profiles-daemon.service
-  ly.service
+  #ly.service
   ufw.service
   asusd.service
   swayosd-libinput-backend.service
