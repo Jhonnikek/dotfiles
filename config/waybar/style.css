@@ -13,27 +13,28 @@
 }
 
 window#waybar {
-    background-color: @background;
+    background-color: transparent;
     color: @foreground;
-    border-radius: 0px;
-    margin: 6px 10px;
+    margin-top: 10px; 
+}
+
+.modules-left,.modules-center,.modules-right {
+    background-color: @background;
+    margin: 0; 
+    border-radius: 5px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(218, 218, 218, 0.1);
 }
 
-#workspaces,#clock,#tray,#bluetooth,#network,#pulseaudio,#power-profiles-daemon,#battery,#custom-exit,#custom-arch {
-    padding: 2px 10px;
-    margin: 2px 0;
+#workspaces, #clock, #tray, #bluetooth, #network, #pulseaudio, #power-profiles-daemon, #battery, #custom-exit, #custom-arch {
+    padding: 0 8px;   
+    margin: 4px 3px;    
     transition: background-color 0.3s;
-}
-
-.modules-left {
-    margin-left: 10px;
 }
 
 #custom-arch {
     font-size: 18px;
-    padding-right: 15px;
+    margin-left: 8px;
 }
 
 workspaces button {
@@ -48,7 +49,7 @@ workspaces button {
 }
 
 #workspaces button.active {
-  color: #FCFCFC;
+  color: @foreground;
   background-color: transparent; 
 }
 
@@ -57,9 +58,9 @@ workspaces button {
 }
 
 #workspaces button.occupied {
-  color: @foreground; 
+  color: @foreground-alt; 
   opacity: 1; 
-}
+} 
 
 #bluetooth, #battery{
   font-size:16px;
@@ -67,10 +68,6 @@ workspaces button {
 
 #clock{
     font-weight: bold;
-}
-
-.modules-right {
-    margin-right: 10px;
 }
 
 #battery.critical:not(.charging) {
