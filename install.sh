@@ -88,7 +88,7 @@ if [[ ! "$CONFIRM" =~ ^[yY]$ ]]; then
   error "Installation cancelled by user."
 fi
 
-# --- 1. SYSTEM PREPARATION ---
+# --- SYSTEM ---
 msg "Enabling [multilib] repository..."
 if ! grep -q "^\s*\[multilib\]" /etc/pacman.conf; then
   sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
@@ -103,7 +103,7 @@ sudo pacman -S --needed --noconfirm git base-devel
 
 success "System preparation completed."
 
-# --- 2. SYMBOLIC LINKS ---
+# --- SYMBOLIC LINKS ---
 msg "Creating symbolic links..."
 
 # Define paths
@@ -114,7 +114,9 @@ DEST_BASHRC="$HOME/.bashrc"
 SOURCE_WALLPAPERS_DIR="$(pwd)/wallpapers"
 DEST_PICTURES_DIR="$HOME/Pictures"
 SOURCE_SCRIPTS_DIR="$(pwd)/scripts"
-DEST_SCRIPTS_DIR="/bin"
+DEST_SCRIPTS_DIR="$HOME/.local/bin" 
+SOURCE_PROFILE="$(pwd)/.profile"
+DEST_PROFILE="$HOME/.profile"
 
 if [ ! -d "$SOURCE_CONFIG_DIR" ]; then
   error "The 'config' directory was not found. Please run the script from your dotfiles repository root."
@@ -166,9 +168,44 @@ for item in "$SOURCE_CONFIG_DIR"/*; do
   ln -s "$source_path" "$dest_path"
   msg "Symbolic link created: $dest_path -> $source_path"
 done
+
+if [ -d "$SOURCE_SCRIPTS_DIR" ]; then
+  msg "Processing user scripts in '$DEST_SCRIPTS_DIR'..."
+  mkdir -p "$DEST_SCRIPTS_DIR"
+
+  for script_path in "$SOURCE_SCRIPTS_DIR"/*; do
+    if [ -f "$script_path" ]; then 
+      script_name=$(basename "$script_path")
+      dest_link="$DEST_SCRIPTS_DIR/$script_name"
+
+      if [ -e "$dest_link" ] || [ -L "$dest_link" ]; then
+        warn "Existing item at '$dest_link'. Backing it up to ${dest_link}.bak"
+        mv "$dest_link" "${dest_link}.bak"
+      fi
+
+      msg "Linking script: $dest_link -> $script_path"
+      ln -s "$script_path" "$dest_link"
+    fi
+  done
+else
+  warn "Scripts directory not found at '$SOURCE_SCRIPTS_DIR'. Skipping."
+fi
+
+msg "Processing ~/.profile link..."
+if [ -f "$SOURCE_PROFILE" ]; then
+    if [ -e "$DEST_PROFILE" ] || [ -L "$DEST_PROFILE" ]; then
+      warn "Existing ~/.profile found. Backing it up to ${DEST_PROFILE}.bak"
+      mv "$DEST_PROFILE" "${DEST_PROFILE}.bak"
+    fi
+    ln -s "$SOURCE_PROFILE" "$DEST_PROFILE"
+    success "Symbolic link created: $DEST_PROFILE -> $SOURCE_PROFILE"
+else
+    warn ".profile not found in dotfiles root. Skipping."
+fi
+
 success "User-level symbolic links completed."
 
-# --- 3. SYSTEM-WIDE SYMBOLIC LINKS ---
+# --- SYSTEM-WIDE SYMBOLIC LINKS ---
 msg "Creating system-wide symbolic links (requires sudo)..."
 
 SOURCE_LY_CONFIG="$(pwd)/config/ly/config.ini"
@@ -189,26 +226,6 @@ else
   warn "Ly configuration file not found at '$SOURCE_LY_CONFIG'. Skipping."
 fi
 
-if [ -d "$SOURCE_SCRIPTS_DIR" ]; then
-  msg "Processing executable scripts in '$DEST_SCRIPTS_DIR'..."
-  for script_path in "$SOURCE_SCRIPTS_DIR"/*; do
-    if [ -f "$script_path" ]; then 
-      script_name=$(basename "$script_path")
-      dest_link="$DEST_SCRIPTS_DIR/$script_name"
-
-      if [ -e "$dest_link" ] || [ -L "$dest_link" ]; then
-        warn "Existing item at '$dest_link'. Backing it up to ${dest_link}.bak"
-        sudo mv "$dest_link" "${dest_link}.bak"
-      fi
-      
-      msg "Linking script: $dest_link -> $script_path"
-      sudo ln -s "$script_path" "$dest_link"
-    fi
-  done
-else
-  warn "Scripts directory not found at '$SOURCE_SCRIPTS_DIR'. Skipping."
-fi
-
 success "System-wide symbolic links completed."
 echo
 
@@ -219,7 +236,7 @@ if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
   msg "Updating system..."
   sudo pacman -Syu --noconfirm
 
-  # --- 4. INSTALL YAY (AUR HELPER) ---
+  # --- INSTALL YAY (AUR HELPER) ---
   msg "Installing the AUR helper 'yay'..."
   if command -v yay &>/dev/null; then
     msg "'yay' is already installed. Skipping."
@@ -234,7 +251,7 @@ if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
   fi
   success "AUR helper check completed."
 
-  # --- 5. PACKAGE INSTALLATION ---
+  # --- PACKAGE INSTALLATION ---
   msg "Installing all defined packages..."
 
   msg "Installing packages from official repositories with pacman..."
@@ -248,7 +265,7 @@ if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
 
   success "Package installation completed."
 
-  # --- 6. SERVICE CONFIGURATION ---
+  # --- SERVICE CONFIGURATION ---
   msg "Enabling system services..."
 
   OTHER_FIREWALL_ACTIVE=false
