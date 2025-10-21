@@ -41,9 +41,8 @@ PACMAN_PACKAGES=(
 )
 
 AUR_PACKAGES=(
-  #visual-studio-code-bin
+  visual-studio-code-bin
   heroic-games-launcher-bin
-  # --- ASUS-specific tools ---
   # If you don't have an ASUS laptop, comment or remove the following two lines
   asusctl
   supergfxctl
@@ -54,7 +53,7 @@ FLATPAK_PACKAGES=(
   com.vysp3r.ProtonPlus
   #com.heroicgameslauncher.hgl
   #org.prismlauncher.PrismLauncher
-  com.visualstudio.code
+  #com.visualstudio.code
 )
 
 SERVICES_TO_ENABLE=(
@@ -66,10 +65,9 @@ SERVICES_TO_ENABLE=(
   docker.service
 )
 
-# --- START OF SCRIPT ---
 clear
-msg "Starting Arch Linux configuration script."
-msg "Your sudo password will be requested for system-level operations."
+msg "Starting install script."
+msg "Your sudo password will be requested."
 echo
 
 # Keep sudo session alive
@@ -82,20 +80,16 @@ done 2>/dev/null &
 
 warn "This script will perform the following actions:"
 echo "  - Create symbolic links for your dotfiles, backing up existing files."
-echo "  - Update the system and enable the [multilib] repository."
-echo "  - Optionally, install packages and enable system services."
+echo "  - Enable the [multilib] repository."
+echo "  - update the system, install packages optionally and enable services"
 echo
-read -p "Are you sure you want to continue? (y/N): " CONFIRM
+read -p "Do you want to continue? (y/N): " CONFIRM
 if [[ ! "$CONFIRM" =~ ^[yY]$ ]]; then
   error "Installation cancelled by user."
 fi
 
 # --- 1. SYSTEM PREPARATION ---
-msg "Preparing the system..."
-msg "Updating system with pacman..."
-sudo pacman -Syu --noconfirm
-
-msg "Enabling [multilib] repository for Steam and 32-bit drivers..."
+msg "Enabling [multilib] repository..."
 if ! grep -q "^\s*\[multilib\]" /etc/pacman.conf; then
   sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
   msg "Multilib repository enabled. Syncing pacman databases..."
@@ -104,13 +98,13 @@ else
   msg "Multilib repository is already enabled."
 fi
 
-msg "Installing dependencies for building AUR packages (git, base-devel)..."
+msg "Installing dependencies for building AUR packages..."
 sudo pacman -S --needed --noconfirm git base-devel
 
 success "System preparation completed."
 
-# --- 2. USER-LEVEL SYMBOLIC LINKS ---
-msg "Creating user-level symbolic links..."
+# --- 2. SYMBOLIC LINKS ---
+msg "Creating symbolic links..."
 
 # Define paths
 SOURCE_CONFIG_DIR="$(pwd)/config"
@@ -119,6 +113,8 @@ SOURCE_BASHRC="$(pwd)/config/bash/main"
 DEST_BASHRC="$HOME/.bashrc"
 SOURCE_WALLPAPERS_DIR="$(pwd)/wallpapers"
 DEST_PICTURES_DIR="$HOME/Pictures"
+SOURCE_SCRIPTS_DIR="$(pwd)/scripts"
+DEST_SCRIPTS_DIR="/bin"
 
 if [ ! -d "$SOURCE_CONFIG_DIR" ]; then
   error "The 'config' directory was not found. Please run the script from your dotfiles repository root."
@@ -150,12 +146,10 @@ else
   warn "Wallpapers directory not found at '$SOURCE_WALLPAPERS_DIR'. Skipping."
 fi
 
-# --- Handle other configs in ~/.config ---
 msg "Processing other configurations in ~/.config..."
 for item in "$SOURCE_CONFIG_DIR"/*; do
   config_name=$(basename "$item")
 
-  # Skip directories handled separately
   if [[ "$config_name" == "ly" ]]; then
     msg "Skipping 'config/$config_name' directory for now (handled as system-wide)."
     continue
@@ -177,7 +171,6 @@ success "User-level symbolic links completed."
 # --- 3. SYSTEM-WIDE SYMBOLIC LINKS ---
 msg "Creating system-wide symbolic links (requires sudo)..."
 
-# --- Handle ly configuration ---
 SOURCE_LY_CONFIG="$(pwd)/config/ly/config.ini"
 DEST_LY_CONFIG="/etc/ly/config.ini"
 
@@ -195,12 +188,36 @@ if [ -f "$SOURCE_LY_CONFIG" ]; then
 else
   warn "Ly configuration file not found at '$SOURCE_LY_CONFIG'. Skipping."
 fi
+
+if [ -d "$SOURCE_SCRIPTS_DIR" ]; then
+  msg "Processing executable scripts in '$DEST_SCRIPTS_DIR'..."
+  for script_path in "$SOURCE_SCRIPTS_DIR"/*; do
+    if [ -f "$script_path" ]; then 
+      script_name=$(basename "$script_path")
+      dest_link="$DEST_SCRIPTS_DIR/$script_name"
+
+      if [ -e "$dest_link" ] || [ -L "$dest_link" ]; then
+        warn "Existing item at '$dest_link'. Backing it up to ${dest_link}.bak"
+        sudo mv "$dest_link" "${dest_link}.bak"
+      fi
+      
+      msg "Linking script: $dest_link -> $script_path"
+      sudo ln -s "$script_path" "$dest_link"
+    fi
+  done
+else
+  warn "Scripts directory not found at '$SOURCE_SCRIPTS_DIR'. Skipping."
+fi
+
 success "System-wide symbolic links completed."
 echo
 
-read -p "Symbolic links are set up. Do you want to install packages and enable services now? (y/N): " INSTALL_PACKAGES
+read -p "Do you want to install packages now? (y/N): " INSTALL_PACKAGES
 
 if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
+  
+  msg "Updating system..."
+  sudo pacman -Syu --noconfirm
 
   # --- 4. INSTALL YAY (AUR HELPER) ---
   msg "Installing the AUR helper 'yay'..."
@@ -260,8 +277,8 @@ fi
 
 # --- FINALIZATION ---
 echo
-success "All done! The script has finished."
-warn "It is highly recommended to reboot your system for all changes to take effect."
+success "All done!"
+warn "It's recommended to reboot the system."
 read -p "Do you want to reboot now? (y/N): " REBOOT_CONFIRM
 if [[ "$REBOOT_CONFIRM" =~ ^[yY]$ ]]; then
   msg "Rebooting system in 5 seconds..."
