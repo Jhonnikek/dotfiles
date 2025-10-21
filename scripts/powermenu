@@ -1,0 +1,33 @@
+#!/bin/bash
+shutdown=""
+reboot=""
+lock=""
+suspend="󰤄"
+logout=""
+
+selection=$(echo "$shutdown
+$reboot
+$lock
+$suspend
+$logout" | rofi -dmenu -theme "$HOME/.config/rofi/themes/powermenu.rasi")
+
+case "$selection" in
+    "$shutdown")
+        systemctl poweroff
+        ;;
+    "$reboot")
+        systemctl reboot
+        ;;
+    "$lock")
+        hyprlock
+        ;;
+    "$suspend")
+        systemctl suspend
+        ;;
+    "$logout")
+        hyprctl dispatch exit
+        ;;
+    *)
+        echo "not match"
+        ;;
+esac
