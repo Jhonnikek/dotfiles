@@ -17,7 +17,7 @@
     margin: 0;
     padding: 0;
     spacing: 0;
-    font: "Caskaydia Cove Nerd Font 12";
+    font: "CaskaydiaCove Nerd Font 12";
     background-color: transparent;
     text-color: @fg0;
 }

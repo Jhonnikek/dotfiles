@@ -1,0 +1,77 @@
+* {
+    bg0:    #080809;
+    fg0:    #E6E6E6;
+    fg1:    #FFFFFF;
+    bor:    rgba(255,255,255,50%);
+    bb:     rgba(12,12,12,75%);
+    
+    background-color: transparent;
+    font: "CaskaydiaCove Nerd Font 12";
+}
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    background-color: @bb;
+    border: 2px;
+    border-color: @bor;
+    border-radius: 1px;
+    width: 425;
+    location: center;
+    padding: 25px;
+}
+
+mainbox {
+    children: [ "listview" ];
+}
+
+listview {
+    layout: horizontal;
+    lines: 5;
+    spacing: 15px;
+    background-color: transparent;
+    row-spacing: @g-spacing;
+}
+
+element {
+    background-color: transparent;
+    border-radius: 1px;
+    cursor: pointer;
+    children: [ "element-text" ];
+    text-color: @fg0;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    spacing: @g-spacing;
+}
+
+element-text {
+    font: "CaskaydiaCove Nerd Font 36";
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    text-color: inherit;
+    background-color: transparent;
+}
+
+element.normal.normal,
+element.alternate.normal {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element.selected.normal,
+element.selected.active {
+    background-color: transparent;
+    border: 2px;
+    border-color: @bor;
+    text-color: @fg1;
+}
+
+element.normal.active,
+element.alternate.active {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
