@@ -1,6 +1,5 @@
 #!/bin/bash
 
-replacement_text=" Image"
+replacement_text=" image"
 
-cliphist list | sed "s/\[\[ binary data.*]]/$replacement_text/" | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
-
+cliphist list | sed "s/\[\[ binary data.*]]/$replacement_text/" | rofi -dmenu -config "$HOME/.config/rofi/themes/clipboard.rasi" -display-columns 2 | cliphist decode | wl-copy

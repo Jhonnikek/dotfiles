@@ -5,29 +5,22 @@ lock=""
 suspend="󰤄"
 logout=""
 
-selection=$(echo "$shutdown
+chosen=$(echo "$shutdown
 $reboot
 $lock
 $suspend
 $logout" | rofi -dmenu -theme "$HOME/.config/rofi/themes/powermenu.rasi")
 
-case "$selection" in
+case "$chosen" in
     "$shutdown")
-        systemctl poweroff
-        ;;
+        systemctl poweroff ;;
     "$reboot")
-        systemctl reboot
-        ;;
+        systemctl reboot ;;
     "$lock")
-        hyprlock
-        ;;
+        hyprlock ;;
     "$suspend")
-        systemctl suspend
-        ;;
+        systemctl suspend ;;
     "$logout")
-        hyprctl dispatch exit
-        ;;
-    *)
-        echo "not match"
-        ;;
+        hyprctl dispatch exit ;;
+    *) exit 1 ;;
 esac
