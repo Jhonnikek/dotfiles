@@ -33,32 +33,29 @@ PACMAN_PACKAGES=(
   alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
   hyprland hyprpaper hyprlock hypridle hyprpicker
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct 
-  qt5-wayland qt6-wayland wl-clipboard kvantum-qt5 breeze-icons
+  qt5-wayland qt6-wayland wl-clipboard kvantum-qt5
   firefox rofi-wayland nautilus grim jq pavucontrol blueberry 
-  mako flameshot swayosd waybar
-  mangohud ufw steam lutris discord flatpak prismlauncher
+  mako flameshot cliphist swayosd waybar
+  mangohud ufw steam lutris discord prismlauncher
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome ttf-cascadia-code-nerd
 )
 
 AUR_PACKAGES=(
   visual-studio-code-bin
   heroic-games-launcher-bin
+  protonplus
   # If you don't have an ASUS laptop, comment or remove the following two lines
   asusctl
   supergfxctl
 )
 
 FLATPAK_PACKAGES=(
-  #net.lutris.Lutris
-  com.vysp3r.ProtonPlus
-  #com.heroicgameslauncher.hgl
-  #org.prismlauncher.PrismLauncher
-  #com.visualstudio.code
+
 )
 
 SERVICES_TO_ENABLE=(
   power-profiles-daemon.service
-  #ly.service
+  ly.service
   ufw.service
   asusd.service
   swayosd-libinput-backend.service
@@ -79,26 +76,26 @@ while true; do
 done 2>/dev/null &
 
 warn "This script will perform the following actions:"
-echo "  - Create symbolic links for your dotfiles, backing up existing files."
+echo "  - Create symbolic links for dotfiles, backing up existing files."
 echo "  - Enable the [multilib] repository."
 echo "  - update the system, install packages optionally and enable services"
 echo
 read -p "Do you want to continue? (y/N): " CONFIRM
 if [[ ! "$CONFIRM" =~ ^[yY]$ ]]; then
-  error "Installation cancelled by user."
+  error "Installation cancelled"
 fi
 
 # --- SYSTEM ---
 msg "Enabling [multilib] repository..."
 if ! grep -q "^\s*\[multilib\]" /etc/pacman.conf; then
   sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
-  msg "Multilib repository enabled. Syncing pacman databases..."
+  msg "Multilib repository enabled"
   sudo pacman -Sy --noconfirm
 else
   msg "Multilib repository is already enabled."
 fi
 
-msg "Installing dependencies for building AUR packages..."
+msg "Installing dependencies for AUR..."
 sudo pacman -S --needed --noconfirm git base-devel
 
 success "System preparation completed."
@@ -289,13 +286,13 @@ if [[ "$INSTALL_PACKAGES" =~ ^[yY]$ ]]; then
   success "Service configuration completed."
 
 else
-  warn "Skipping package installation and service configuration."
+  warn "Skipping package installation"
 fi
 
 # --- FINALIZATION ---
 echo
 success "All done!"
-warn "It's recommended to reboot the system."
+
 read -p "Do you want to reboot now? (y/N): " REBOOT_CONFIRM
 if [[ "$REBOOT_CONFIRM" =~ ^[yY]$ ]]; then
   msg "Rebooting system in 5 seconds..."
