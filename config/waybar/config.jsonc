@@ -63,7 +63,7 @@
     "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "Connected to {ifname}",
     "tooltip-format-disconnected": "Offline",
-    "on-click": "" 
+    "on-click": "wifimenu" 
   },
 
   "pulseaudio":{
@@ -96,7 +96,7 @@
     "tooltip": true,
     "tooltip-format": "Profile: {profile}",
     "format-icons": {
-      "performance": "",
+      "performance": "󰑣",
       "balanced": "󰈐",
       "power-saver": ""
     }
