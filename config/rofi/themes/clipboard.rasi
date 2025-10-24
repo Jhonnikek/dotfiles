@@ -11,15 +11,14 @@
 }
 
 configuration {
-    modi: "drun";
-    show-icons: true;
-    display-drun: "";
-    drun-display-format: "{name}";
+    show-icons: false;
+    display-dmenu: "";
+
 }
 
 window {
     location: center;
-    width: 500px; 
+    width: 300px; 
     border: 2px;  
     border-radius: 1px; 
     border-color: @bor;
@@ -43,13 +42,17 @@ inputbar {
 }
 
 prompt {
-    text-color: @fg0;
-    width: 28px;
-    text-align: center;
+    enabled: false;
+    width: 0px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-color:       transparent;
+    background-color: transparent;
 }
 
 entry {
-    placeholder: "Search";
+    placeholder: "Clipboard";
     placeholder-color: @fg0;
     expand: true;
     text-color: @fg0;
@@ -96,6 +99,7 @@ element-icon {
 
 element-text {
     text-color: @fg0;
+    markup: true;
 }
 
 message {
