@@ -10,12 +10,4 @@ pre_prompt_command() {
 }
 PROMPT_COMMAND="pre_prompt_command"
 
-pre_exec_clear() {
-    if [ -n "$_PROMPT_IS_READY" ]; then
-        unset _PROMPT_IS_READY
-        clear
-    fi
-}
-trap 'pre_exec_clear' DEBUG
-
 PS1='\[\e[94m\]\[\e[0m\][\[\e[97m\]\w\[\e[36m\]$(parse_git_branch)\[\e[0m\]]\n\[\e[36m\]❯\[\e[0m\]'
