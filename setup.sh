@@ -28,15 +28,21 @@ error() {
 
 # --- PACKAGE LISTS ---
 PACMAN_PACKAGES=(
+  #nvidia drivers if u dont need them comment or remove the line
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
+  #system utils
   power-profiles-daemon brightnessctl playerctl ncdu
-  alacritty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
+  #clitools
+  kitty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
+  #hyprland 
   hyprland hyprpaper hyprlock hypridle hyprpicker
-  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6ct qt5ct 
-  qt5-wayland qt6-wayland wl-clipboard kvantum-qt5
-  firefox rofi-wayland nautilus grim jq pavucontrol blueberry 
-  mako flameshot cliphist swayosd waybar
+  #Wayland/XDG
+  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gtk3 gtk4  qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard kvantum-qt5
+  #ui apps/utils
+  firefox ly rofi-wayland nautilus grim jq pavucontrol blueberry mako flameshot cliphist swayosd waybar
+  #gaming
   mangohud ufw steam lutris discord prismlauncher
+  #fonts
   ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-font-awesome ttf-cascadia-code-nerd
 )
 
@@ -44,6 +50,7 @@ AUR_PACKAGES=(
   visual-studio-code-bin
   heroic-games-launcher-bin
   protonplus
+  otf-monocraft
   # If you don't have an ASUS laptop, comment or remove the following two lines
   asusctl
   supergfxctl
@@ -60,6 +67,7 @@ SERVICES_TO_ENABLE=(
   asusd.service
   swayosd-libinput-backend.service
   docker.service
+  NetworkManager.service
 )
 
 clear
