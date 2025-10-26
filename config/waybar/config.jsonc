@@ -58,8 +58,8 @@
     "format": "{icon}", 
     "format-wifi": "{icon}", 
     "format-ethernet": "󰒪",   
-    "format-disconnected": "󰤮", 
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],  
+    "format-disconnected": "󰖪", 
+    "format-icons": ["󰖩"],  
     "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "Connected to {ifname}",
     "tooltip-format-disconnected": "Offline",
@@ -74,14 +74,14 @@
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip-format":"Volume at {volume}%",
     "format-icons": {
-          "default": ["", "","","", "", "", "", "", ""] 
+          "default": [""] 
       }
   },
 
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}",
-    "format-icons": ["󰃝", "󰃞", "󰃟", "󰃠"],
+    "format-icons": ["󰖨"],
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "scroll-step": 5,
@@ -96,8 +96,8 @@
     "tooltip": true,
     "tooltip-format": "Profile: {profile}",
     "format-icons": {
-      "performance": "󰑣",
-      "balanced": "󰈐",
+      "performance": "󱓞",
+      "balanced": "󰫕",
       "power-saver": ""
     }
   },

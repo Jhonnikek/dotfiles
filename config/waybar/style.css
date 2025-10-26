@@ -1,15 +1,12 @@
-@define-color background      rgba(0, 0, 0, 0.4);
+@define-color background      rgba(0, 0, 0, 0.3);
 @define-color foreground      #dadada;
 @define-color foreground-alt  rgba(218, 218, 218, 0.5);
 @define-color highlight       rgba(218, 218, 218, 0.1);
 @define-color urgent          #f38ba8;
 
 * {
-    border: none;
-    border-radius: 0;
-    font-family: CaskaydiaMono Nerd Font, FontAwesome;
+    font-family: "Monocraft";
     font-size: 14px;
-    min-height: 0;
 }
 
 window#waybar {
