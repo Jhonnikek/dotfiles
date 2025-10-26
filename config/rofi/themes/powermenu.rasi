@@ -1,9 +1,5 @@
 @import "colors/colors.rasi"
 * {
-    bor: rgba(255,255,255,50%);
-    bb: rgba(12,12,12,75%);
-    
-    background-color: transparent;
     font: "CaskaydiaCove Nerd Font 12";
 }
 
@@ -27,7 +23,7 @@ mainbox {
 
 listview {
     layout: horizontal;
-    lines: 5;
+    lines: 6;
     spacing: 15px;
     background-color: transparent;
     row-spacing: @g-spacing;
@@ -37,27 +33,20 @@ element {
     background-color: transparent;
     border-radius: 1px;
     cursor: pointer;
-    children: [ "element-text" ];
     text-color: @fg0;
     padding: 0;
     width: 60px;
     height: 60px;
-    spacing: @g-spacing;
 }
 
 element-text {
-    font: "CaskaydiaCove Nerd Font 36";
-    horizontal-align: 0.5;
+    font: "CaskaydiaCove Nerd Font 34";
+    horizontal-align: 0.35;
     vertical-align: 0.5;
     text-color: inherit;
     background-color: transparent;
 }
 
-element.normal.normal,
-element.alternate.normal {
-    background-color: transparent;
-    text-color: @fg0;
-}
 
 element.selected.normal,
 element.selected.active {
@@ -66,10 +55,3 @@ element.selected.active {
     border-color: @bor;
     text-color: @fg1;
 }
-
-element.normal.active,
-element.alternate.active {
-    background-color: transparent;
-    text-color: @fg0;
-}
-

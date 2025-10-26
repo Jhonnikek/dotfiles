@@ -5,15 +5,13 @@
     margin: 0;
     padding: 0;
     spacing: 0;
-    font: "CaskaydiaCove Nerd Font 12";
+    font: "Monocraft 12";
     background-color: transparent;
     text-color: @fg0;
 }
 
 configuration {
     show-icons: false;
-    display-dmenu: "";
-
 }
 
 window {
@@ -33,7 +31,7 @@ mainbox {
 
 inputbar {
     background-color: @se;
-    border: 1px; 
+    border: 2px; 
     border-color: @bor;
     border-radius: 1px; 
     padding: 8px 12px;
@@ -52,7 +50,7 @@ prompt {
 }
 
 entry {
-    placeholder: "Clipboard";
+    placeholder: " Clipboard";
     placeholder-color: @fg0;
     expand: true;
     text-color: @fg0;
@@ -62,7 +60,7 @@ entry {
 listview {
     background-color: transparent;
     margin: 10px 0 0 0; 
-    lines: 5; 
+    lines: 4; 
     columns: 1;
     fixed-height: true;
     scrollbar: false;

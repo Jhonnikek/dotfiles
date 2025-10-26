@@ -1,11 +1,9 @@
 @import "colors/colors.rasi"
 * {
-    g-spacing: 8px; 
-
     margin: 0;
     padding: 0;
     spacing: 0;
-    font: "CaskaydiaCove Nerd Font 12";
+    font: "Monocraft 12";
     background-color: transparent;
     text-color: @fg0;
 }
@@ -13,7 +11,7 @@
 configuration {
     modi: "drun";
     show-icons: true;
-    display-drun: "";
+    display-drun: " ";
     drun-display-format: "{name}";
 }
 
@@ -27,50 +25,46 @@ window {
 }
 
 mainbox {
-    padding: 15px; 
-    spacing: @g-spacing;
+    padding: 20px; 
+    spacing: 20px;
     children: ["inputbar", "listview", "message"];
 }
 
 inputbar {
     background-color: @se;
-    border: 1px; 
+    border: 2px; 
     border-color: @bor;
     border-radius: 1px; 
-    padding: 8px 12px;
-    spacing: @g-spacing;
+    padding: 15px;
+    spacing: 10px;
     children: ["prompt", "entry"];
 }
 
 prompt {
     text-color: @fg0;
-    width: 28px;
     text-align: center;
 }
 
 entry {
     placeholder: "Search";
     placeholder-color: @fg0;
-    expand: true;
     text-color: @fg0;
-    padding-left: 4px;
 }
 
 listview {
     background-color: transparent;
-    margin: 10px 0 0 0; 
-    lines: 5; 
+    lines: 3; 
     columns: 1;
     fixed-height: true;
     scrollbar: false;
     separator-style: none;
-    row-spacing: @g-spacing;
     border: 0px;
 }
 
 element {
     padding: 8px 12px;
-    spacing: @g-spacing;
+    spacing: 15px;
+    border: 0px;
     border-radius: 1px; 
 }
 
