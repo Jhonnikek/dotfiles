@@ -6,13 +6,14 @@ My personal dotfiles for arch.
 
 ## Dependencies
 
-- `alacritty`
+- `hyprland`
+- `waybar`
+- `nvim`
+- `kitty`
 - `fastfetch`
 - `btop` 
 - `rofi`
-- `ttf-fira-sans`
-- `ttf-fira-code`
-- `ttf-firacode-nerd`
+
 
 ---
 
