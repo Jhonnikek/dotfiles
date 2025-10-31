@@ -33,7 +33,7 @@ PACMAN_PACKAGES=(
   #system utils
   power-profiles-daemon brightnessctl playerctl ncdu
   #clitools
-  kitty btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
+  kitty zsh btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
   #hyprland 
   hyprland hyprpaper hyprlock hypridle hyprpicker
   #Wayland/XDG
