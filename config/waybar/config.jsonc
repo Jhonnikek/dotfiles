@@ -4,44 +4,44 @@
   "layer": "top",
   "spacing": 0,
   "height": 30,
-  "modules-left": ["custom/arch","hyprland/workspaces"],
+  "modules-left": ["custom/arch", "hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray","custom/separator","bluetooth", "network", "pulseaudio","backlight","power-profiles-daemon", "battery", "custom/exit"],
+  "modules-right": [
+    "tray","bluetooth","network","pulseaudio","backlight","power-profiles-daemon","battery","custom/exit"
+  ],
 
   "hyprland/workspaces": {
-      "on-click": "activate",
-      "all-outputs": false,
-      "format": "{icon}",
-      "format-icons": {
-          "default": "",
-          "active": "󰮯"
-      },
-      "persistent-workspaces": {
-        "1": [], "2": [], "3": []
+    "on-click": "activate",
+    "all-outputs": false,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "󰑊",
+      "active": "󰮯"
+    },
+    "persistent-workspaces": {
+      "1": [],"2": [],"3": []
     }
   },
 
   "custom/arch": {
-      "format": "<span></span>",
-      "on-click": "rofi -show drun -monitor -3",
-      "tooltip": false
+    "format": "<span></span>",
+    "on-click": "rofi -show drun -monitor -3",
+    "tooltip": false
   },
 
-  "clock":{
+  "clock": {
     "format": "{:%H:%M}",
     "format-alt": "{:%A, %B %d}",
     "tooltip": false
   },
 
-  "tray":{
+  "tray": {
     "icon-size": 16,
     "spacing": 10
   },
 
-  "custom/separator":{
-    "format":"{icon}",
-    "format-icons":"┃",
-    "tooltip": false
+  "hyprland/language": {
+    "format": "󰌌 {short}"
   },
 
   "bluetooth": {
@@ -54,28 +54,28 @@
     "on-click": "blueberry"
   },
 
-  "network":{
-    "format": "{icon}", 
-    "format-wifi": "{icon}", 
-    "format-ethernet": "󰒪",   
-    "format-disconnected": "󰖪", 
-    "format-icons": ["󰖩"],  
+  "network": {
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰒪",
+    "format-disconnected": "󰖪",
+    "format-icons": ["󰖩"],
     "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "Connected to {ifname}",
     "tooltip-format-disconnected": "Offline",
-    "on-click": "wifimenu" 
+    "on-click": "wifimenu"
   },
 
-  "pulseaudio":{
+  "pulseaudio": {
     "format": "{icon}",
-    "format-muted": "󰖁", 
+    "format-muted": "󰖁",
     "on-click": "pavucontrol",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-    "tooltip-format":"Volume at {volume}%",
+    "tooltip-format": "Volume at {volume}%",
     "format-icons": {
-          "default": [""] 
-      }
+      "default": [""]
+    }
   },
 
   "backlight": {
@@ -86,9 +86,9 @@
     "on-scroll-down": "brightnessctl set 1%-",
     "scroll-step": 5,
     "tooltip-format": "{percent}%"
-},
+  },
 
-  "power-profiles-daemon":{
+  "power-profiles-daemon": {
     "format": "{icon}",
     "format-performance": "󰊗 Performance",
     "format-balanced": " Balanced",
@@ -97,22 +97,22 @@
     "tooltip-format": "Profile: {profile}",
     "format-icons": {
       "performance": "󱓞",
-      "balanced": "󰫕",
+      "balanced": "󰾅",
       "power-saver": ""
     }
   },
 
-  "battery":{
+  "battery": {
     "states": {
       "warning": 30,
       "critical": 15
     },
     "format": "{icon}",
-    "format-charging": "{icon}", 
-    "format-plugged": "󰚥",  
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾","󰁿","󰂀","󰂁", "󰂂", "󰁹"],
+    "format-charging": "{icon}",
+    "format-plugged": "󰚥",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-charging-icons": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂅"],
-    "tooltip-format":"{capacity}% - {time} left",
+    "tooltip-format": "{capacity}% - {time} left",
     "tooltip-format-charging": "Charging {capacity}% - {time} left",
     "tooltip-format-plugged": "Plugged {capacity}%"
   },
@@ -120,6 +120,6 @@
   "custom/exit": {
     "format": "",
     "on-click": "exec powermenu",
-    "tooltip-format": "Super + Esc"
+    "tooltip-format": "[Super + Esc]"
   }
 }
