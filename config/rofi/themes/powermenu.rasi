@@ -9,10 +9,10 @@ configuration {
 
 window {
     background-color: @bb;
-    border: 2px;
+    border: 1px;
     border-color: @bor;
-    border-radius: 1px;
-    width: 425;
+    border-radius: 10px;
+    width: 425px;
     location: center;
     padding: 25px;
 }
@@ -26,7 +26,7 @@ listview {
     lines: 6;
     spacing: 15px;
     background-color: transparent;
-    row-spacing: @g-spacing;
+    row-spacing: 10;
 }
 
 element {
@@ -41,17 +41,17 @@ element {
 
 element-text {
     font: "CaskaydiaCove Nerd Font 34";
-    horizontal-align: 0.35;
     vertical-align: 0.5;
+    horizontal-align: 0.5;
     text-color: inherit;
     background-color: transparent;
 }
 
-
 element.selected.normal,
 element.selected.active {
     background-color: transparent;
-    border: 2px;
+    border: 0px;
+    border-radius:10px;
     border-color: @bor;
-    text-color: @fg1;
+    text-color: #9cf6f0ff;
 }
