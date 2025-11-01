@@ -31,15 +31,15 @@ PACMAN_PACKAGES=(
   #nvidia drivers if u dont need them comment or remove the line
   nvidia nvidia-prime nvidia-utils lib32-nvidia-utils vulkan-tools
   #system utils
-  power-profiles-daemon brightnessctl playerctl ncdu
+  power-profiles-daemon brightnessctl playerctl ncdu iwd
   #clitools
-  kitty zsh btop fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
+  kitty btop impala bluetui wiremix fastfetch bat lsd fzf nvim lazygit lazydocker pacman-contrib less git openssh nodejs npm postgresql docker
   #hyprland 
   hyprland hyprpaper hyprlock hypridle hyprpicker
   #Wayland/XDG
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk gtk3 gtk4  qt6ct qt5ct qt5-wayland qt6-wayland wl-clipboard kvantum-qt5
   #ui apps/utils
-  firefox ly rofi-wayland nautilus grim jq pavucontrol blueberry mako flameshot cliphist swayosd waybar
+  firefox ly rofi-wayland nautilus grim jq pavucontrol mako flameshot cliphist swayosd waybar
   #gaming
   mangohud ufw steam lutris discord prismlauncher
   #fonts
@@ -50,7 +50,7 @@ AUR_PACKAGES=(
   visual-studio-code-bin
   heroic-games-launcher-bin
   protonplus
-  otf-monocraft
+  wlogout
   # If you don't have an ASUS laptop, comment or remove the following two lines
   asusctl
   supergfxctl
@@ -63,6 +63,7 @@ FLATPAK_PACKAGES=(
 SERVICES_TO_ENABLE=(
   power-profiles-daemon.service
   ly.service
+  iwd.service
   ufw.service
   asusd.service
   swayosd-libinput-backend.service
