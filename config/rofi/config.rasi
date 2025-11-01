@@ -12,7 +12,7 @@
 configuration {
     modi: "drun";
     show-icons: true;
-    display-drun: " ";
+    display-drun: " ";
     drun-display-format: "{name}";
 }
 
@@ -28,14 +28,16 @@ window {
 mainbox {
     padding: 0px; 
     spacing: 0px;
+    border: 1px;
+    border-color: @bor;
     border-radius: 10px;
     children: ["inputbar", "listview", "message"];
 }
 
 inputbar {
     background-color: @bb;
-    border: 1px; 
-    border-radius: 10px;
+    border: 0px; 
+    border-radius: 10px 10px 0px 0px;
     border-color: @bor; 
     padding: 10px;
     spacing: 10px;
@@ -61,6 +63,8 @@ listview {
     fixed-height: false;
     scrollbar: false;
     border: 0px;
+    border-color: @bor;
+    border-radius: 0px 0px 10px 10px;
 }
 
 element {
@@ -80,7 +84,7 @@ element.alternate.active {
 }
 element.selected.normal,
 element.selected.active {
-    background-color: transparent; 
+    background-color: @sel; 
     border: 1px solid;  
     border-radius: 10px;      
     border-color: @bor;        
