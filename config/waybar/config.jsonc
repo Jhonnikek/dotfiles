@@ -51,7 +51,7 @@
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "tooltip-format-connected": "Connected to {device_alias}",
-    "on-click": "blueberry"
+    "on-click": "kitty --class bluetui-float bluetui"
   },
 
   "network": {
@@ -63,19 +63,19 @@
     "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
     "tooltip-format-ethernet": "Connected to {ifname}",
     "tooltip-format-disconnected": "Offline",
-    "on-click": "wifimenu"
+    "on-click": "kitty --class impala-float impala"
   },
 
   "pulseaudio": {
     "format": "{icon}",
     "format-muted": "󰖁",
-    "on-click": "pavucontrol",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip-format": "Volume at {volume}%",
     "format-icons": {
       "default": [""]
-    }
+    },
+    "on-click": "kitty --class wiremix-float wiremix"
   },
 
   "backlight": {
@@ -119,7 +119,7 @@
 
   "custom/exit": {
     "format": "",
-    "on-click": "exec powermenu",
+    "on-click": "exec wlogout",
     "tooltip-format": "[Super + Esc]"
   }
 }
