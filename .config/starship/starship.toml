@@ -1,0 +1,72 @@
+format = """
+$directory\
+$git_branch\
+$line_break\
+$character"""
+
+[username]
+style_user = 'cyan bold'
+style_root = 'black bold'
+format = "[$user]($style) "
+disabled = false
+show_always = true
+aliases = { "corpuser034g" = "matchai" }
+
+[os]
+format = "[($symbol)]($style)"
+style = "blue"
+disabled = false
+
+[directory]
+style = 'bold fg:cyan'
+format = '[$path ]($style)'
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+style = 'bold blue'
+symbol = ' '
+format = '\[[$symbol$branch]($style)\]'
+
+[python]
+format = '[${symbol}(\($virtualenv\))]($style)'
+symbol = " "
+style = "white"
+
+[character]
+success_symbol = '[❯](bold white) '
+error_symbol = '[❯](bold red) '
+
+[rust]
+symbol = "󱘗 "
+
+[aws]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[golang]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Arch = " "
+Debian = " "
+Fedora = " "
+Linux = " "
+Macos = " "

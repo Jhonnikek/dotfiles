@@ -1,25 +1,12 @@
 # Dotfiles
 
-My personal dotfiles for arch.
-
----
-
-## Dependencies
-
-- `hyprland`
-- `waybar`
-- `nvim`
-- `kitty`
-- `fastfetch`
-- `btop` 
-- `rofi`
-
+My personal dotfiles for Linux.
 
 ---
 
 ## Installation
 
-### First clone the repo
+### clone the repo
 ```bash
 git clone https://github.com/Jhonnikek/dotfiles.git
 cd dotfiles
@@ -27,7 +14,9 @@ cd dotfiles
 
 ### Run the installation file
 ```bash
-./install.sh
+./setup
+#then run stow
+stow .
 ```
 
 

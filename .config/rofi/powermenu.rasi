@@ -1,0 +1,54 @@
+@import "colors.rasi"
+* {
+    font: "CaskaydiaCove Nerd Font 12";
+    background-color: transparent;
+}
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    background-color: @bb;
+    border: 1px;
+    border-color: @bor;
+    border-radius: 8px;
+    width: 425px;
+    location: center;
+    padding: 25px;
+}
+
+mainbox {
+    children: [ "listview" ];
+}
+
+listview {
+    layout: horizontal;
+    lines: 6;
+    spacing: 15px;
+    row-spacing: 10;
+}
+
+element {
+    border-radius: 1px;
+    cursor: pointer;
+    text-color: @fg0;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+}
+
+element-text {
+    font: "CaskaydiaCove Nerd Font 34";
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    text-color: inherit;
+}
+
+element.selected.normal,
+element.selected.active {
+    border: 0px;
+    border-radius:10px;
+    border-color: @bor;
+    text-color: #9cf6f0ff;
+}
