@@ -46,6 +46,18 @@
       "keyColor": "white"
     },
     {
+      "type": "memory",
+      "key": " ",
+      "format": "",
+      "keyColor": "white"
+    },
+    {
+      "type": "disk",
+      "key": " ",
+      "format": "{size-used} / {size-total} ({size-percentage})",
+      "keyColor": "white"
+    },
+    {
       "type": "shell",
       "key": " ",
       "keyColor": "#ABABAB"
