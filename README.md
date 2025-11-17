@@ -1,23 +1,11 @@
 # Dotfiles
 
-My personal dotfiles for Linux.
+My personal dotfiles for ArchLinux.
 
 ---
 
 ## Installation
 
-### clone the repo
 ```bash
-git clone https://github.com/Jhonnikek/dotfiles.git
-cd dotfiles
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jhonnikek/dotfiles/refs/heads/main/install.sh)"
 ```
-
-### Run the installation file
-```bash
-./setup
-#then run stow
-stow .
-```
-
-
-

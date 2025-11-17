@@ -30,7 +30,6 @@ for app in "${apps[@]}";do
     sudo pacman -S --noconfirm --needed ${app}
 done
 echo "Apps installed."
-#corregir
 read -p "Do you want to install gaming apps? [y/N]: " confirm
 if [[ "$confirm" =~ ^[yY]$ ]]; then
     echo "Installing gaming apps"
