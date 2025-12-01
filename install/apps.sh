@@ -12,6 +12,7 @@ apps=(
     lsd
     fzf
     zoxide
+    zellij
     duf
     nvim
     jq
@@ -29,14 +30,14 @@ gaming_apps=(
 for app in "${apps[@]}";do
     sudo pacman -S --noconfirm --needed ${app}
 done
-echo "Apps installed."
-read -p "Do you want to install gaming apps? [y/N]: " confirm
+
+read -p $'\n-Do you want to install gaming apps? [y/N]: ' confirm
 if [[ "$confirm" =~ ^[yY]$ ]]; then
-    echo "Installing gaming apps"
+    echo -e "\nInstalling gaming apps\n"
     for gaming_app in "${gaming_apps[@]}";do
         sudo pacman -S --noconfirm --needed ${gaming_app}
-        yay -S --noconfirm --needed protonplus
+        yay -S --noconfirm --needed heroic-games-launcher-bin protonplus
     done
 else
-    echo "Skipping gaming apps..."
+    echo -e "\nSkipping gaming apps..."
 fi

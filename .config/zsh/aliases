@@ -41,3 +41,6 @@ alias pl='pip list'
 alias venv='python3 -m venv venv'
 alias von='source venv/bin/activate'
 alias voff='deactivate'
+
+#clamav
+alias scan="clear ; echo 'Scanning...' ; clamscan -r --bell --infected --exclude-dir='/home/jhonni/.cache' /home/jhonni ; echo 'Scan complete'"

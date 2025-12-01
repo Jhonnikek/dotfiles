@@ -1,24 +1,35 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu git --noconfirm --needed
-echo "cloning repo"
-git clone https://github.com/Jhonnikek/dotfiles.git 
+logo='
+██╗  ██╗███████╗██╗  ██╗██████╗  ██████╗ ████████╗███████╗
+██║ ██╔╝██╔════╝██║ ██╔╝██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝
+█████╔╝ █████╗  █████╔╝ ██║  ██║██║   ██║   ██║   ███████╗
+██╔═██╗ ██╔══╝  ██╔═██╗ ██║  ██║██║   ██║   ██║   ╚════██║
+██║  ██╗███████╗██║  ██╗██████╔╝╚██████╔╝   ██║   ███████║
+╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝    ╚═╝   ╚══════╝'
 
+clear
+echo -e "\n$logo\n"
+
+sudo pacman -Syu git --noconfirm --needed
+echo -e "Cloning repo\n"
+git clone https://github.com/Jhonnikek/dotfiles.git 
 cd dotfiles
 
-echo "Creating symlinks..."
+echo -e "Creating symlinks...\n"
 source $HOME/dotfiles/install/symlinks.sh
 echo "Symlinks created."
 
-echo "Installing apps..."
+echo -e "\nInstalling apps...\n"
 source $HOME/dotfiles/install/apps.sh
+echo -e "\nApps installed.\n"
 
-read -p "Do you want to install devtools? [y/N]: " confirm
+read -p "-Do you want to install devtools? [y/N]: " confirm
 if [[ "$confirm" =~ ^[yY]$ ]]; then
-    echo "Installing devtools"
     source $HOME/dotfiles/install/devtools.sh
+    echo "Devtools installed."
 else
-    echo "Skipping devtools..."
+    echo -e "\nSkipping devtools..."
 fi
 
-echo "Installation complete."
+echo -e "\nSetup complete."

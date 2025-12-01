@@ -18,3 +18,10 @@ ln -sfn $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 echo "Linking scripts"
 ln -sfn $HOME/dotfiles/scripts $HOME/.local/bin
+
+echo "Linking Zen Browser config"
+mkdir -p $HOME/.zen/zen
+ln -sf "$HOME/dotfiles/zen/profiles.ini" "$HOME/.zen/profiles.ini"
+ln -sf "$HOME/dotfiles/zen/prefs.js" "$HOME/.zen/zen/prefs.js"
+ln -sfn "$HOME/dotfiles/zen/chrome" "$HOME/.zen/zen/chrome"
+cp "$HOME/dotfiles/zen/sessionstore.jsonlz4" "$HOME/.zen/zen/sessionstore.jsonlz4"

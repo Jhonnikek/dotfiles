@@ -1,41 +1,41 @@
+"$schema" = "https://starship.rs/config-schema.json"
 format = """
-[](#a3aed2)\
+[](fg:color_bg1)\
 $os\
-[](fg:#a3aed2 bg:#769ff0)\
+$username\
+$hostname\
+[ ](fg:color_bg1 bg:color_bg2)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[ ](fg:color_bg2 bg:color_bg3)\
 $git_branch\
-[](fg:#394260 bg:#283042)\
+[ ](fg:color_bg3 bg:color_bg4)\
 $python\
 $nodejs\
 $rust\
 $golang\
 $php\
-[](fg:#283042 bg:#1d2230)\
+$java\
+[ ](fg:color_bg4 bg:color_bg5)\
 $docker_context\
-[](fg:#1d2230)\
+[ ](fg:color_bg5)\
 $fill\
-[](fg:#1d2230)\
+[](fg:color_bg5)\
 $time\
 $cmd_duration\
-[](fg:#1d2230)
-$line_break\
-$character"""
+[ ](fg:color_bg5)\
+\n$character\
+"""
+
+palette = "ccswe_dark"
 
 [os]
-format = "[($symbol)]($style)"
-style = "bg:#a3aed2 fg:#090c0c"
+format = "[$symbol]($style)"
+style = "bg:color_bg1 fg:color_white"
 disabled = false
-
-[username]
-show_always = true
-style_user = "bg:#a3aede fg:#090c0c"
-style_root = "bg:#a3aede fg:#090c0c"
-format = '[ $user ]($style)'
 
 [directory]
 home_symbol = " "
-style = "fg:#e3e5e5 bg:#769ff0"
+style = "bg:color_bg2 fg:color_white"
 format = "[ $path ]($style)"
 truncation_length = 1
 truncate_to_repo = true
@@ -51,57 +51,68 @@ truncate_to_repo = true
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+style = "bg:color_bg3 fg:color_blue"
+format = "[$symbol $branch]($style)"
 
 [character]
 disabled = false
-success_symbol = '[➜](fg:white)'
-error_symbol = '[➜](fg:red)'
+success_symbol = '[➜](fg:color_blue)'
+error_symbol = '[➜](fg:color_red)'
+
+[hostname]
+format = "[@$hostname]($style)"
+ssh_only = true
+ssh_symbol = " "
+style = "bg:color_bg1 fg:color_white"
 
 [python]
 symbol = "  "
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#3776AB bg:color_bg4)]($style)'
 
 [nodejs]
-symbol = ""
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#5FA04E bg:color_bg4)]($style)'
 
 [lua]
 symbol = " "
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#3776ABbg:color_bg4)]($style)'
 
 [rust]
 symbol = "󱘗 "
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#81877f bg:color_bg4)]($style)'
 
 [golang]
-symbol = ""
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#76cbf0 bg:color_bg4)]($style)'
 
 [php]
-symbol = ""
-style = "bg:#283042"
-format = '[[ $symbol](fg:#769ff0 bg:#283042)]($style)'
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#a576f0 bg:color_bg4)]($style)'
+
+[java]
+format = '[$symbol]($style)'
+style = "bg:color_bg4 fg:#F7901E"
+symbol = " "
 
 [docker_context]
-symbol = ""
-style = "bg:#1d2230"
-format = '[[ $symbol( $context) ](fg:#a0a9cb bg:#1d2230))]($style)'
+symbol = " "
+style = "bg:color_bg5"
+format = '[[ $symbol( $context) ](fg:#a0a9cb bg:color_bg5)]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+style = "bg:color_bg5"
+format = '[[  $time ](fg:#a0a9cb bg:color_bg5)]($style)'
 
 [cmd_duration]
-style = "bg:#1d2230"
+style = "bg:color_bg5 fg:#a0a9cb"
 format = "[ ]($style)"
 
 [fill]
@@ -113,3 +124,15 @@ Debian = "  "
 Fedora = "  "
 Linux = "  "
 Macos = "  "
+
+[palettes.ccswe_dark]
+color_bg1 = "#336699"
+color_bg2 = "#2f5783"
+color_bg3 = "#294262"
+color_bg4 = "#232f44"
+color_bg5 = "#1d2230"
+
+color_blue = "#769ff0"
+color_gray = "#999999"
+color_red = "#eb4d28"
+color_white = "#f2f2f2"
