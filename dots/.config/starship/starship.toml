@@ -1,0 +1,179 @@
+"$schema" = "https://starship.rs/config-schema.json"
+format = """
+[](fg:color_bg1)\
+$os\
+$username\
+$hostname\
+[ ](fg:color_bg1 bg:color_bg2)\
+$directory\
+[ ](fg:color_bg2 bg:color_bg3)\
+$git_branch\
+[ ](fg:color_bg3 bg:color_bg4)\
+$python\
+$nodejs\
+$rust\
+$golang\
+$php\
+$java\
+[ ](fg:color_bg4 bg:color_bg5)\
+$docker_context\
+[ ](fg:color_bg5)\
+$fill\
+[](fg:color_bg5)\
+$time\
+$cmd_duration\
+[ ](fg:color_bg5)\
+\n$character\
+"""
+
+palette = "ccswe_dark"
+
+[os]
+format = "[$symbol]($style)"
+style = "bg:color_bg1 fg:color_white"
+disabled = false
+
+[directory]
+home_symbol = " "
+style = "bg:color_bg2 fg:color_white"
+format = "[ $path ]($style)"
+truncation_length = 1
+truncate_to_repo = true
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
+"GitHub" = " 󰊤 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_bg3 fg:color_blue"
+format = "[$symbol $branch]($style)"
+
+[character]
+disabled = false
+success_symbol = '[➜](fg:color_blue)'
+error_symbol = '[➜](fg:color_red)'
+
+[hostname]
+format = "[@$hostname]($style)"
+ssh_only = true
+ssh_symbol = " "
+style = "bg:color_bg1 fg:color_white"
+
+[python]
+symbol = "  "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#3776AB bg:color_bg4)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#5FA04E bg:color_bg4)]($style)'
+
+[lua]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#3776ABbg:color_bg4)]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#81877f bg:color_bg4)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#76cbf0 bg:color_bg4)]($style)'
+
+[php]
+symbol = " "
+style = "bg:color_bg4"
+format = '[[ $symbol](fg:#a576f0 bg:color_bg4)]($style)'
+
+[java]
+format = '[$symbol]($style)'
+style = "bg:color_bg4 fg:#F7901E"
+symbol = " "
+
+[docker_context]
+symbol = " "
+style = "bg:color_bg5"
+format = '[[ $symbol( $context) ](fg:#a0a9cb bg:color_bg5)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:color_bg5"
+format = '[[  $time ](fg:#a0a9cb bg:color_bg5)]($style)'
+
+[cmd_duration]
+style = "bg:color_bg5 fg:#a0a9cb"
+format = "[ ]($style)"
+
+[fill]
+symbol = ' ' 
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[palettes.ccswe_dark]
+color_bg1 = "#336699"
+color_bg2 = "#2f5783"
+color_bg3 = "#294262"
+color_bg4 = "#232f44"
+color_bg5 = "#1d2230"
+
+color_blue = "#769ff0"
+color_gray = "#999999"
+color_red = "#eb4d28"
+color_white = "#f2f2f2"

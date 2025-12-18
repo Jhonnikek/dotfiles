@@ -1,0 +1,35 @@
+[font]
+size = 12.0
+
+[font.normal]
+family = "Caskaydia Cove Nerd Font"
+style = "Regular"
+
+[window]
+dimensions = { columns = 120, lines = 30 }
+opacity = 0.6
+
+[window.padding]
+x = 15
+y = 15
+
+[selection]
+save_to_clipboard = true
+
+[cursor.style]
+shape = "Underline"   
+blinking = "Always"      
+
+[colors.primary]
+background = "#0c0c0c"
+foreground = "#e5e5e5"
+
+[colors.normal]
+black   = "#0c0c0c"
+red     = "#c50f1f"
+green   = "#13a10e"
+yellow  = "#c19c00"
+blue    = "#0037da"
+magenta = "#881798"
+cyan    = "#3a96dd"
+white   = "#cccccc"

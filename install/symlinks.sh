@@ -1,27 +1,27 @@
 #!/usr/bin/env bash
 
-for f in "$HOME/dotfiles/.config/"*; do
-    file=$(basename "$f")
-    if [ -e "$HOME/.config/$file" ]; then
-        echo "'$file' exists, creating backup..."
-        mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
-    fi
-    echo "Linking $f"
+for f in "$HOME/dotfiles/dots/.config/"*; do
     ln -sfn "$f" "$HOME/.config/"
 done
 
-echo "Linking walls"
-ln -sfn $HOME/dotfiles/walls $HOME/Pictures/
+ln -s "$HOME/dotfiles/walls" "$HOME/Pictures/"
 
-echo "Linking zsh"
-ln -sfn $HOME/dotfiles/.zshrc $HOME/.zshrc
+ln -sfn "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
 
-echo "Linking scripts"
-ln -sfn $HOME/dotfiles/scripts $HOME/.local/bin
+mkdir -p "$HOME/.local/bin"
+ln -sfn "$HOME/dotfiles/dots/scripts/"* "$HOME/.local/bin"
 
-echo "Linking Zen Browser config"
-mkdir -p $HOME/.zen/zen
-ln -sf "$HOME/dotfiles/zen/profiles.ini" "$HOME/.zen/profiles.ini"
-ln -sf "$HOME/dotfiles/zen/prefs.js" "$HOME/.zen/zen/prefs.js"
-ln -sfn "$HOME/dotfiles/zen/chrome" "$HOME/.zen/zen/chrome"
-cp "$HOME/dotfiles/zen/sessionstore.jsonlz4" "$HOME/.zen/zen/sessionstore.jsonlz4"
+mkdir -p "$HOME/.zen/zen"
+ln -sfn "$HOME/dotfiles/dots/zen/profiles.ini" "$HOME/.zen/profiles.ini"
+ln -sfn "$HOME/dotfiles/dots/zen/prefs.js" "$HOME/.zen/zen/prefs.js"
+ln -sfn "$HOME/dotfiles/dots/zen/chrome" "$HOME/.zen/zen/chrome"
+cp "$HOME/dotfiles/dots/zen/sessionstore.jsonlz4" "$HOME/.zen/zen/sessionstore.jsonlz4"
+
+mkdir -p "$HOME/.config/Code - OSS/User/"
+ln -sfn "$HOME/dotfiles/dots/code/settings.json" "$HOME/.config/Code - OSS/User/settings.json"
+cat "$HOME/dotfiles/dots/code/extensions.txt" | xargs -L 1 code-oss --install-extension
+
+mkdir -p "$HOME/.local/share/icons/"
+for i in "$HOME/dotfiles/dots/icons/"*; do
+    tar -xzf "$i" -C "$HOME/.local/share/icons/"
+done

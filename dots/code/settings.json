@@ -1,0 +1,10 @@
+{
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'monospace', monospace",
+    "symbols.hidesExplorerArrows": false,
+    "workbench.iconTheme": "symbols",
+    "explorer.confirmDelete": false
+}

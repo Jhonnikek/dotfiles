@@ -1,43 +1,52 @@
 #!/usr/bin/env bash
 
 apps=(
-    flatpak
-    discord
-    kitty
-    zsh
-    starship
-    btop
-    fastfetch
-    bat
-    lsd
-    fzf
-    zoxide
-    zellij
-    duf
-    nvim
-    jq
-    pacman-contrib
-    ttf-cascadia-code-nerd
+anytype-bin
+bat
+btop
+cava
+code
+discord
+docker
+duf
+fastfetch
+fzf
+jq
+kitty
+lazydocker
+lazygit
+less
+lsd
+nvim
+openssh
+pacman-contrib
+postgresql
+python-websockets
+starship
+ttf-cascadia-code-nerd
+zellij
+zen-browser-bin
+zoxide
+zsh
+plasma6-applets-catwalk
+plasma6-applets-kurve
 )
 
-gaming_apps=(
-    mangohud
-    steam
-    lutris
-    prismlauncher 
+services=(
+    docker.service
+    postgresql.service
 )
 
 for app in "${apps[@]}";do
-    sudo pacman -S --noconfirm --needed ${app}
+    yay -S --needed --noconfirm "${app}"
 done
 
-read -p $'\n-Do you want to install gaming apps? [y/N]: ' confirm
-if [[ "$confirm" =~ ^[yY]$ ]]; then
-    echo -e "\nInstalling gaming apps\n"
-    for gaming_app in "${gaming_apps[@]}";do
-        sudo pacman -S --noconfirm --needed ${gaming_app}
-        yay -S --noconfirm --needed heroic-games-launcher-bin protonplus
-    done
-else
-    echo -e "\nSkipping gaming apps..."
-fi
+# enable services
+for service in "${services[@]}"; do
+    if ! systemctl is-enabled "$service" &>/dev/null; then
+        echo "Enabling $service"
+        sudo systemctl enable "$service"
+    else
+        echo -e "\n$service is already enabled"
+    fi
+done
