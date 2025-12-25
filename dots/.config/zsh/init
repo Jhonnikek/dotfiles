@@ -11,3 +11,12 @@ eval "$(starship init zsh)"
 
 #zoxide
 eval "$(zoxide init zsh)"
+
+export HISTCONTROL=ignoreboth
+
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
+
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"

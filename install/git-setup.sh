@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 #git setup
-echo -e "\n:: Git setup\n"
 read -r -p "Name: " name
 read -r -p "Email: " email
 

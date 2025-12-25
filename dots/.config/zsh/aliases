@@ -7,6 +7,12 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='fastfetch'
+alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
+alias rmpkg="sudo pacman -Rsn"
+alias cleanch="sudo pacman -Scc"
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias update="sudo pacman -Syu"
+alias jctl="journalctl -p 3 -xb"
 
 # === Python Aliases ===
 
