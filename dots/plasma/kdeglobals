@@ -134,13 +134,24 @@ ForegroundVisited=155,89,182
 
 [General]
 AccentColor=61,174,233
+ColorScheme=BreezeDark
 ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
 LastUsedCustomAccentColor=61,174,233
+TerminalApplication=kitty
+TerminalService=kitty.desktop
+XftHintStyle=hintslight
+XftSubPixel=rgb
+fixed=Hack,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Noto Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [Icons]
 Theme=PlagueSur
 
 [KDE]
+AnimationDurationFactor=0.25
 LookAndFeelPackage=org.kde.breezedark.desktop
 widgetStyle=Breeze
 
@@ -159,7 +170,7 @@ Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=140
-View Style=DetailTree
+View Style=Simple
 
 [Shortcuts]
 AboutApp=
@@ -189,6 +200,7 @@ Zoom=
 [WM]
 activeBackground=39,44,49
 activeBlend=252,252,252
+activeFont=Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 activeForeground=252,252,252
 inactiveBackground=32,36,40
 inactiveBlend=161,169,177

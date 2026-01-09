@@ -1,10 +1,15 @@
 {
-    "files.autoSave": "afterDelay",
     "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "GitHub Dark Colorblind (Beta)",
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "'CaskaydiaCove Nerd Font', 'monospace', monospace",
+    "editor.fontFamily": "'Caskaydia Cove Nerd Font'",
     "symbols.hidesExplorerArrows": false,
     "workbench.iconTheme": "symbols",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "GitHub Dark Default",
+    "files.autoSave": "afterDelay",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "editor.wordWrap": "on",
+    "editor.fontSize": 16
 }
