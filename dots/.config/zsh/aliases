@@ -7,8 +7,10 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='fastfetch'
+alias zed='zeditor'
+
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
-alias rmpkg="sudo pacman -Rsn"
+alias rmpkg="yay -Rns"
 alias cleanch="sudo pacman -Scc"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias update="sudo pacman -Syu"
@@ -18,7 +20,7 @@ alias jctl="journalctl -p 3 -xb"
 
 # Running code
 alias py='python'
-alias prun='python3 manage.py runserver' # For Django
+alias pyrun='python3 manage.py runserver' # For Django
 alias pytest='python3 -m pytest'
 
 # Pip Package Management
