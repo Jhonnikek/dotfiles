@@ -20,3 +20,7 @@ export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
 
 export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
 export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
