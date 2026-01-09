@@ -8,7 +8,6 @@ rm -rf "$HOME/.cache/plasma"* "$HOME/.cache/kwin"*
 
 config_files=(
   "kglobalshortcutsrc"
-  "ksplashrc"
   "kdeglobals"
   "plasma-org.kde.plasma.desktop-appletsrc"
   "plasmashellrc"

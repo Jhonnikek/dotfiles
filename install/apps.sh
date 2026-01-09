@@ -2,6 +2,7 @@
 
 apps=(
 anytype-bin
+atuin
 bat
 btop
 cava
@@ -28,8 +29,6 @@ zellij
 zen-browser-bin
 zoxide
 zsh
-plasma6-applets-catwalk
-plasma6-applets-kurve
 )
 
 services=(
