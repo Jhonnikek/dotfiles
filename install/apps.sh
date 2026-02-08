@@ -7,7 +7,6 @@ bat
 btop
 cava
 code
-discord
 docker
 duf
 fastfetch
@@ -18,15 +17,15 @@ lazydocker
 lazygit
 less
 lsd
+midori
 nvim
 openssh
 pacman-contrib
 postgresql
-python-websockets
+python-uv
 starship
 ttf-cascadia-code-nerd
 zellij
-zen-browser-bin
 zoxide
 zsh
 )
@@ -49,3 +48,5 @@ for service in "${services[@]}"; do
         echo -e "\n$service is already enabled"
     fi
 done
+
+atuin import auto
