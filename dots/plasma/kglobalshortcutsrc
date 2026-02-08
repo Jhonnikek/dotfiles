@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-c3371982-207a-41cf-90b4-651f6033e52a=none,none,Switch to activity "Default"
 switch-to-activity-d1561da3-fe43-43b8-8054-013403832c1b=none,none,Switch to activity "Default"
 switch-to-activity-d3d529b4-ae5b-4461-8c16-b6dbad0a2a39=none,none,Switch to activity "Default"
 switch-to-activity-dfcdc3d1-91af-427c-829a-6203a2a4a86f=none,none,Switch to activity "Default"
@@ -264,6 +265,9 @@ toggle do not disturb=none,,Toggle do not disturb
 
 [services][kitty.desktop]
 _launch=Meta+Return
+
+[services][midori-ng.desktop]
+_launch=Meta+B
 
 [services][net.local.kitty.desktop]
 _launch=Meta+T
