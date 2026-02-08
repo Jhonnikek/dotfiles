@@ -6,7 +6,7 @@ alias lsa='ls -a'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ff='fastfetch'
+alias ff='random_logo'
 alias zed='zeditor'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
