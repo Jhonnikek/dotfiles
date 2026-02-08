@@ -49,4 +49,8 @@ for service in "${services[@]}"; do
     fi
 done
 
+#load autin offline config
 atuin import auto
+
+#load zsh 
+chsh -s $(which zsh)
