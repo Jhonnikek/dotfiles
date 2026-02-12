@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 apps=(
+alacritty
 anytype-bin
 atuin
 bat
@@ -12,12 +13,11 @@ duf
 fastfetch
 fzf
 jq
-kitty
 lazydocker
 lazygit
 less
 lsd
-midori
+midori-bin
 nvim
 openssh
 pacman-contrib
