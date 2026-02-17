@@ -1,13 +1,12 @@
 # ================ aliases ================
 
 alias plz='sudo'
-alias ls='ls --color=auto'
-alias lsa='ls -a'
+alias ls='lsd -1'
+alias lsa='lsd -a'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ff='random_logo'
-alias zed='zeditor'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias rmpkg="yay -Rns"
