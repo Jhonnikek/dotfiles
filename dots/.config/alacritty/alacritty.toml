@@ -6,48 +6,26 @@ family = "Caskaydia Cove Nerd Font"
 style = "Regular"
 
 [window]
-dimensions = { columns = 120, lines = 30 }
 opacity = 0.8
+startup_mode = "Maximized"
 
 [window.padding]
-x = 15
-y = 15
+x = 7
+y = 7
 
-[selection]
-save_to_clipboard = true
-
-[cursor.style]
-shape = "Underline"   
-blinking = "Always"      
+[env]
+TERM = "xterm-256color"
 
 [colors.primary]
-foreground = "#e6edf3"
-background = "#010409"
-
-[colors.cursor]
-text = "#010409"
-cursor = "#e6edf3"
-
-[colors.selection]
-text = "#e6edf3"
-background = "#264f78"
+background = "#0c0c0c"
+foreground = "#e5e5e5"
 
 [colors.normal]
-black = "#484f58"
-red = "#ff7b72"
-green = "#3fb950"
-yellow = "#d29922"
-blue = "#58a6ff"
-magenta = "#bc8cff"
-cyan = "#39c5cf"
-white = "#b1bac4"
-
-[colors.bright]
-black = "#6e7681"
-red = "#ffa198"
-green = "#56d364"
-yellow = "#e3b341"
-blue = "#79c0ff"
-magenta = "#d2a8ff"
-cyan = "#56d4dd"
-white = "#ffffff"
+black = "#0c0c0c"
+red = "#c50f1f"
+green = "#19cb00"
+yellow = "#c19c00"
+blue = "#0D73CC"
+magenta = "#881798"
+cyan = "#3a96dd"
+white = "#cccccc"
