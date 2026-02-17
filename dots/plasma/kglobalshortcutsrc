@@ -263,7 +263,7 @@ switch to next activity=none,,Switch to Next Activity
 switch to previous activity=none,,Switch to Previous Activity
 toggle do not disturb=none,,Toggle do not disturb
 
-[services][kitty.desktop]
+[services][Alacritty.desktop]
 _launch=Meta+Return
 
 [services][midori-ng.desktop]
@@ -273,7 +273,7 @@ _launch=Meta+B
 _launch=Meta+T
 
 [services][org.kde.krunner.desktop]
-_launch=Search\tAlt+Space\tAlt+F2\tMeta+S
+_launch=Alt+Space\tSearch\tAlt+F2
 
 [services][org.kde.plasma-systemmonitor.desktop]
 _launch=none
