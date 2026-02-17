@@ -1,32 +1,32 @@
 "$schema" = "https://starship.rs/config-schema.json"
 format = """
-[](fg:color_bg1)\
+[ ](bg:color_bg1)\
 $os\
 $username\
 $hostname\
-[ ](fg:color_bg1 bg:color_bg2)\
+[ ](fg:color_bg1 bg:color_bg2)\
 $directory\
-[ ](fg:color_bg2 bg:color_bg3)\
+[ ](fg:color_bg2 bg:color_bg3)\
 $git_branch\
-[ ](fg:color_bg3 bg:color_bg4)\
+[ ](fg:color_bg3 bg:color_bg4)\
 $python\
 $nodejs\
 $rust\
 $golang\
 $php\
 $java\
-[ ](fg:color_bg4 bg:color_bg5)\
+[ ](fg:color_bg4 bg:color_bg5)\
 $docker_context\
-[ ](fg:color_bg5)\
+[ ](fg:color_bg5)\
 $fill\
-[](fg:color_bg5)\
+[](fg:color_bg5)\
 $time\
 $cmd_duration\
-[ ](fg:color_bg5)\
+[ ](fg:color_bg5)\
 \n$character\
 """
 
-palette = "ccswe_dark"
+palette = "tokyonight"
 
 [os]
 format = "[$symbol]($style)"
@@ -107,7 +107,7 @@ format = '[[ $symbol( $context) ](fg:#a0a9cb bg:color_bg5)]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"                                        # Hour:Minute Format
 style = "bg:color_bg5"
 format = '[[  $time ](fg:#a0a9cb bg:color_bg5)]($style)'
 
@@ -125,15 +125,15 @@ AlmaLinux = " "
 Amazon = " "
 Android = " "
 AOSC = " "
-Arch = " "
+Arch = "   "
 Artix = " "
-CachyOS = " "
+CachyOS = "   "
 CentOS = " "
-Debian = " "
+Debian = "   "
 DragonFly = " "
 Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
+EndeavourOS = "   "
+Fedora = "   "
 FreeBSD = " "
 Garuda = "󰛓 "
 Gentoo = " "
@@ -177,3 +177,15 @@ color_blue = "#769ff0"
 color_gray = "#999999"
 color_red = "#eb4d28"
 color_white = "#f2f2f2"
+
+[palettes.tokyonight]
+color_bg1 = "#3d59a1"
+color_bg2 = "#344a82"
+color_bg3 = "#2c3a64"
+color_bg4 = "#24283b"
+color_bg5 = "#1a1b26"
+
+color_blue = "#7aa2f7"
+color_gray = "#565f89"
+color_red = "#f7768e"
+color_white = "#c0caf5"
