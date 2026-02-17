@@ -1,0 +1,6 @@
+[flavor]
+dark = "tokyonight-night"
+
+[status]
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
