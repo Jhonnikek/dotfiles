@@ -13,19 +13,34 @@ startup_mode = "Maximized"
 x = 7
 y = 7
 
-[env]
-TERM = "xterm-256color"
-
 [colors.primary]
-background = "#0c0c0c"
-foreground = "#e5e5e5"
+foreground = "#c0caf5"
+background = "#1a1b26"
+
+[colors.cursor]
+text = "#1a1b26"
+cursor = "#c0caf5"
+
+[colors.selection]
+text = "#c0caf5"
+background = "#283457"
 
 [colors.normal]
-black = "#0c0c0c"
-red = "#c50f1f"
-green = "#19cb00"
-yellow = "#c19c00"
-blue = "#0D73CC"
-magenta = "#881798"
-cyan = "#3a96dd"
-white = "#cccccc"
+black = "#15161e"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+
+[colors.bright]
+black = "#414868"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#c0caf5"
