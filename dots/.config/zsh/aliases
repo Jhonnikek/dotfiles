@@ -31,7 +31,7 @@ alias pl='pip list'
 
 # venv
 alias venv='python3 -m venv venv'
-alias von='source venv/bin/activate'
+alias von='source .venv/bin/activate'
 alias voff='deactivate'
 
 #clamav
