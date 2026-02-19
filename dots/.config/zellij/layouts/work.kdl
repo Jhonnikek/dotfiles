@@ -4,12 +4,4 @@ layout {
     default_tab_template {
         children
     }
-
-    tab name="Terminal" focus=true {
-        pane
-    }
-
-    tab name="yazi"{
-        pane command="yazi"
-    }
 }
