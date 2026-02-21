@@ -1,0 +1,31 @@
+# ================ aliases ================
+
+alias plz='sudo'
+alias ls='ls --color=auto'
+alias lsa='ls -a'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ff='fastfetch'
+
+# === Python Aliases ===
+
+# Running code
+alias py='python'
+alias prun='python3 manage.py runserver' # For Django
+alias pytest='python3 -m pytest'
+
+# Pip Package Management
+alias pi='pip install'
+alias pir='pip install -r requirements.txt'
+alias pu='pip uninstall'
+alias pf='pip freeze > requirements.txt'
+alias pl='pip list'
+
+# venv
+alias venv='python3 -m venv venv'
+alias von='source venv/bin/activate'
+alias voff='deactivate'
+
+#clamav
+alias scan="clear ; echo 'Scanning...' ; clamscan -r --bell --infected --exclude-dir='/home/jhonni/.cache' /home/jhonni ; echo 'Scan complete'"
