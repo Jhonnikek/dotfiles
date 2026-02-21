@@ -19,8 +19,42 @@ else
   echo ":: Yay is already installed"
 fi
 
+apps=(
+  alacritty
+  anytype-bin
+  atuin
+  bat
+  btop
+  chafa
+  code
+  docker
+  duf
+  fastfetch
+  fzf
+  go
+  jq
+  lazydocker
+  lazygit
+  less
+  lsd
+  npm
+  nvim
+  openssh
+  pacman-contrib
+  postgresql
+  python-uv
+  starship
+  ttf-cascadia-code-nerd
+  wl-clipboard
+  zellij
+  zoxide
+  zsh
+)
+
 echo -e "\n:: Installing packages\n"
-yay -S --needed --noconfirm - < packages.txt
+for app in "${apps[@]}"; do
+  yay -S --needed --noconfirm "${app}"
+done
 
 services=(
   docker.service
