@@ -1,6 +1,0 @@
-# ================ zsh ================
-
-source ~/.config/zsh/env
-source ~/.config/zsh/settings
-source ~/.config/zsh/init
-source ~/.config/zsh/aliases

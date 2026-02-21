@@ -1,7 +1,0 @@
-simplified_ui false
-pane_frames false
-layout {
-    default_tab_template {
-        children
-    }
-}
