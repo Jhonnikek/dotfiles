@@ -4,12 +4,10 @@ atuin
 bat
 btop
 chafa
-code
 docker
 duf
 fastfetch
 fzf
-git
 go
 jq
 lazydocker

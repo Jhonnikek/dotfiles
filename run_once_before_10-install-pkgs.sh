@@ -20,8 +20,7 @@ else
 fi
 
 echo -e "\n:: Installing packages\n"
-yay -S --needed --noconfirm - <packages.txt
-source "$HOME/dotfiles/install/services.sh"
+yay -S --needed --noconfirm - < packages.txt
 
 services=(
   docker.service

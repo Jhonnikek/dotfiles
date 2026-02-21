@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu --needed --noconfirm git openssh
-
-echo -e "\n:: Generating ssh key\n"
+echo -e "\n:: Generating ssh key"
 mkdir -p ~/.ssh
 ssh-keyscan -t ed25519 github.com >>~/.ssh/known_hosts 2>/dev/null
 
