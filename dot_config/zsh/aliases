@@ -2,7 +2,7 @@
 
 alias plz='sudo'
 alias ls='lsd -a'
-alias lsa='lsd -a'
+alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -10,6 +10,7 @@ alias ff='random_logo'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias rmpkg="yay -Rns"
+alias install="yay -Syu"
 alias cleanch="sudo pacman -Scc"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias update="sudo pacman -Syu"
