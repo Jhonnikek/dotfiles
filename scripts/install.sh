@@ -42,9 +42,12 @@ apps=(
   openssh
   pacman-contrib
   postgresql
-  python-uv
+  ruff
   starship
+  tree
   ttf-cascadia-code-nerd
+  ty
+  uv
   wl-clipboard
   zellij
   zoxide
