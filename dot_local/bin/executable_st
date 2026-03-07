@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+theme=$1
+
+ln -sf "$HOME/.config/alacritty/themes/${theme}.toml" "$HOME/.config/alacritty/themes/theme.toml"
