@@ -7,5 +7,5 @@ My personal dotfiles for ArchLinux.
 ## Installation
 
 ```bash
-chezmoi init --apply https://github.com/Jhonnikek/dotfiles.git
+sudo pacman -Syu chezmoi && chezmoi init --apply https://github.com/Jhonnikek/dotfiles.git
 ```
