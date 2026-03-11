@@ -21,7 +21,6 @@ fi
 
 apps=(
   alacritty
-  anytype-bin
   atuin
   bat
   btop
@@ -39,8 +38,10 @@ apps=(
   lsd
   npm
   nvim
+  obsidian
   openssh
   pacman-contrib
+  pgcli
   postgresql
   ruff
   starship
@@ -49,6 +50,7 @@ apps=(
   ty
   uv
   wl-clipboard
+  yazi
   zellij
   zoxide
   zsh
