@@ -6,7 +6,6 @@ alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ff='random_logo'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias rmpkg="yay -Rns"
