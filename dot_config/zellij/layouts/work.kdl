@@ -1,7 +1,19 @@
 simplified_ui false
 pane_frames false
+
 layout {
     default_tab_template {
         children
+    }
+
+    swap_floating_layout {
+        floating_panes max_panes=1 {
+            pane borderless=false {
+                x "12%"
+                y "12%"
+                width "75%"
+                height "75%"
+            }
+        }
     }
 }
