@@ -31,7 +31,6 @@ apps=(
   fastfetch
   fzf
   go
-  jq
   lazydocker
   lazygit
   less
