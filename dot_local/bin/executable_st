@@ -2,4 +2,4 @@
 
 theme=$1
 
-ln -sf "$HOME/.config/alacritty/themes/${theme}.toml" "$HOME/.config/alacritty/themes/theme.toml"
+cat "$HOME/.config/alacritty/themes/${theme}.toml" >"$HOME/.config/alacritty/themes/theme.toml"
