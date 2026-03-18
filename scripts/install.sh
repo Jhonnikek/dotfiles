@@ -29,6 +29,7 @@ apps=(
   docker
   duf
   fastfetch
+  fd
   fzf
   go
   lazydocker
