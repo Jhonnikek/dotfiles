@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+dir="$HOME/.config/alacritty/themes"
+
+theme=$(ls -1 "$dir" | grep '\.toml$' | grep -v '^theme\.toml$' | fzf --height=40% --layout=reverse)
+
+[ -n "$theme" ] && cat "$dir/$theme" >"$dir/theme.toml"

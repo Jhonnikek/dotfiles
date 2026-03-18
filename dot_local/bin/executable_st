@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-theme=$1
-
-cat "$HOME/.config/alacritty/themes/${theme}.toml" >"$HOME/.config/alacritty/themes/theme.toml"
