@@ -29,7 +29,7 @@ mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/spring-clean-$(date +%F_%H-%M-%S).log"
 
 PACCACHE_RETAIN=2   # keep N package versions
-CACHE_DAYS=30       # prune ~/.cache entries older than N days
+CACHE_DAYS=15       # prune ~/.cache entries older than N days
 JOURNAL_RETAIN="7d" # e.g. 500M or 7d
 # --------------------------------------------------------------------------
 
@@ -47,11 +47,18 @@ announce() { printf "\n\e[1;34m==> %s\e[0m\n" "$1"; }
 DO_UPGRADE=false
 while [[ $# -gt 0 ]]; do
   case $1 in
-    -u|--upgrade) DO_UPGRADE=true ; shift ;;
-    -h|--help)
-      echo "Usage: $0 [--upgrade]"
-      exit 0 ;;
-    *) echo "Unknown option: $1" ; exit 2 ;;
+  -u | --upgrade)
+    DO_UPGRADE=true
+    shift
+    ;;
+  -h | --help)
+    echo "Usage: $0 [--upgrade]"
+    exit 0
+    ;;
+  *)
+    echo "Unknown option: $1"
+    exit 2
+    ;;
   esac
 done
 
@@ -60,7 +67,7 @@ announce "Arch Spring‑Clean starting $(date)  —  using $AUR"
 # ---------- 1. Optional system upgrade ------------------------------------
 if $DO_UPGRADE; then
   announce "System upgrade ($AUR)"
-  $AUR -Syu --ask 4   # interactive for .pacnew merges
+  $AUR -Syu --ask 4 # interactive for .pacnew merges
   echo "Run 'sudo pacdiff' after the script to merge new config files."
 fi
 
@@ -97,6 +104,9 @@ if confirm "Clean ~/.cache now? [y/N]"; then
 fi
 cache_after=$(du -sh ~/.cache | cut -f1)
 echo "After: $cache_after"
+if confirm "delete thumbnails? [y/N]"; then
+  rm -rf ~/.cache/thumbnails/*
+fi
 
 # ---------- 5. Journald rotate & vacuum ----------------------------------
 announce "Vacuuming journald logs ($JOURNAL_RETAIN)"
