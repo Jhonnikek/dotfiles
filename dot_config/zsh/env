@@ -9,3 +9,5 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
 export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
+export FZF_DEFAULT_OPTS="--color=16 --height=45% --layout=reverse --border=sharp --style=full:sharp"
