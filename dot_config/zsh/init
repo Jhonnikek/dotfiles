@@ -6,9 +6,6 @@ eval "$(atuin init zsh)"
 #starship 
 eval "$(starship init zsh)"
 
-#zoxide
-eval "$(zoxide init zsh)"
-
 #yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
