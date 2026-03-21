@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+random_logo=$(find ~/.config/fastfetch/logos/ -type f -name "*.txt" | shuf -n 1)
+
+fastfetch --logo "$random_logo"

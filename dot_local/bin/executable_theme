@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-dir="$HOME/.config/alacritty/themes"
-
-theme=$(fd -e toml -E theme.toml --base-directory "$dir" | fzf --height=40% --layout=reverse)
-
-[ -n "$theme" ] && cat "$dir/$theme" >"$dir/theme.toml"

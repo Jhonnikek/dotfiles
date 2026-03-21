@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+pkgs=$(yay -Qqe | fzf --multi --preview 'yay -Qi {1}')
+
+if [[ -n "$pkgs" ]]; then
+    echo "$pkgs" | xargs -ro yay -Rns --noconfirm && sleep 1 && clear
+fi
+
+
