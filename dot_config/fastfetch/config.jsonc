@@ -17,11 +17,11 @@
   "modules": [
     {
       "type": "title",
-      "format": "         {#white}{1}{#bright_black}@{#blue}{2}{#}"
+      "format": "         {#white}{1}{#blue}@{#cyan}{2}{#}"
     },
     {
       "type": "custom",
-      "format": "{#bright_black}• ───────────────────────────── •{#}"
+      "format": "{#bright_blue}• ───────────────────────────── •{#}"
     },
     {
       "type": "os",
@@ -69,7 +69,7 @@
     },
     {
       "type": "custom",
-      "format": "{#bright_black}• ───────────────────────────── •{#}"
+      "format": "{#bright_blue}• ───────────────────────────── •{#}"
     },
     {
       "type": "custom",
