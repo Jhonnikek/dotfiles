@@ -6,7 +6,6 @@ alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias nv='fd -H -E .git --base-directory "$HOME" | fzf | xargs -r nvim'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias cleanch="sudo pacman -Scc"
@@ -14,6 +13,3 @@ alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias jctl="journalctl -p 3 -xb"
 
 alias py='python'
-
-#clamav
-alias scan="clear ; echo 'Scanning...' ; clamscan -r --bell --infected --exclude-dir='/home/jhonni/.cache' /home/jhonni ; echo 'Scan complete'"
