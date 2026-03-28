@@ -24,7 +24,6 @@ apps=(
   atuin
   bat
   btop
-  chafa
   code
   docker
   duf
@@ -36,6 +35,7 @@ apps=(
   lazygit
   less
   lsd
+  markdownlint-cli
   npm
   nvim
   obsidian
@@ -43,9 +43,11 @@ apps=(
   pacman-contrib
   pgcli
   postgresql
+  ripgrep
   ruff
   starship
   tree
+  tree-sitter-cli
   ttf-cascadia-code-nerd
   ty
   uv

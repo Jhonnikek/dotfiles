@@ -10,4 +10,6 @@ bash "$dir/scripts/ssh.sh"
 
 bash "$dir/scripts/icons.sh"
 
+git clone https://github.com/Jhonnikek/nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
 chsh -s $(which zsh)
