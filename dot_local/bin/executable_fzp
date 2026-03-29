@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+fzf_args=(
+  -m
+  --marker='>>'
+  --color 'pointer:cyan,marker:blue'
+  --layout=reverse
+  --border=sharp
+  --style=full:sharp
+  --preview-label='/,f3: toggle preview'
+  --preview-label-pos='bottom'
+)
+
+yay -Slq | fzf "${fzf_args[@]}" \
+  --prompt='Install> ' \
+  --preview 'yay -Si {1}' \
+  --bind 'alt-i,f1:change-prompt(Install> )+reload(yay -Slq)+change-preview(yay -Si {1})' \
+  --bind 'alt-u,f2:change-prompt(Uninstall> )+reload(yay -Qqe)+change-preview(yay -Qi {1})' \
+  --bind '/,f3:toggle-preview' \
+  --bind 'enter:become(
+    if [ "$FZF_PROMPT" = "Install> " ]; then
+      echo {+} | xargs -ro yay -S --noconfirm && sleep 1 && clear
+    else
+      echo {+} | xargs -ro yay -Rns --noconfirm && sleep 1 && clear
+    fi
+  )'
