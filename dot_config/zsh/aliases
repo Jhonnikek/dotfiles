@@ -6,6 +6,7 @@ alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias fetch='fastfetch --logo $(find ~/.config/fastfetch/logos/ -type f -name "*.txt" | shuf -n 1)'
 
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias cleanch="sudo pacman -Scc"
