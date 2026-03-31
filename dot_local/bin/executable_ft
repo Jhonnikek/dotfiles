@@ -2,7 +2,7 @@
 
 dir="$HOME/.config/alacritty/themes"
 
-theme=$(fd -e toml -E theme.toml --base-directory "$dir" | fzf)
+theme=$(fd -e toml -E theme.toml --base-directory "$dir" | fzf --info=inline --height=45% --layout=reverse)
 
 if [[ -n "$theme" ]]; then
   ln -sf "$dir/$theme" "$dir/theme.toml"
