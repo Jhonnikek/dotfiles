@@ -1,3 +1,12 @@
-/dots_config/nvim/lazyvim.json
-/dots_config/nvim/lazy-lock.json
-/dot_config/nvim/.neoconf.json
+*.swp
+*.swo
+*.swn
+*.un~
+
+Session.vim
+.netrwhist
+
+__pycache__/
+*.pyc
+*.log
+.env
