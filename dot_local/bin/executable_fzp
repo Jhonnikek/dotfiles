@@ -5,8 +5,10 @@ fzf_args=(
   --marker='>>'
   --color 'pointer:cyan,marker:blue'
   --layout=reverse
-  --border=sharp
-  --style=full:sharp
+  --info=inline
+  --preview-window border-sharp
+  --border-label='f1: install, f2:uninstall'
+  --border-label-pos='bottom'
   --preview-label='/,f3: toggle preview'
   --preview-label-pos='bottom'
 )
