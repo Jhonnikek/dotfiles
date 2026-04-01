@@ -17,7 +17,7 @@ style = "bright-black"
 truncation_symbol = " "
 truncation_length = 2
 truncate_to_repo = true
-style = "white"
+style = "bold white"
 format = "[$path ]($style)"
 
 [character]
@@ -27,7 +27,7 @@ error_symbol = "[❯](red)"
 [git_branch]
 symbol = ""
 format = "[$symbol $branch ]($style)"
-style = "bright-black"
+style = "dimmed white"
 
 [cmd_duration]
 format = "[ ]($style)"
