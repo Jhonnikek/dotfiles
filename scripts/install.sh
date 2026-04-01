@@ -24,13 +24,11 @@ apps=(
   atuin
   bat
   btop
-  code
   docker
   duf
   fastfetch
   fd
   fzf
-  go
   lazydocker
   lazygit
   less
