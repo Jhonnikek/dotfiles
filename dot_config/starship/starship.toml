@@ -5,7 +5,7 @@ add_newline = false
 [os]
 format = "[$symbol ]($style)"
 style = "bright-blue"
-disabled = false
+disabled = true
 
 [hostname]
 format = "[@$hostname ]($style)"
@@ -17,11 +17,11 @@ style = "bright-black"
 truncation_symbol = " "
 truncation_length = 2
 truncate_to_repo = true
-style = "bold white"
+style = "blue"
 format = "[$path ]($style)"
 
 [character]
-success_symbol = "[❯](bright-cyan)"
+success_symbol = "[❯](cyan)"
 error_symbol = "[❯](red)"
 
 [git_branch]

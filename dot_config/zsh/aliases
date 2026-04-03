@@ -1,7 +1,7 @@
 # ================ aliases ================
 
 alias plz='sudo'
-alias ls='lsd -a'
+alias ls='lsd -a --group-directories-first'
 alias cat='bat'
 alias ..='cd ..'
 alias ...='cd ../..'

@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
 
+if command -v yay &>/dev/null; then
+  export aur=yay
+elif command -v paru &>/dev/null; then
+  export aur=paru
+else
+  echo "AUR helper is not installed"
+  exit 1
+fi
+
 fzf_args=(
   -m
-  --marker='>>'
+  --marker='>'
   --color 'pointer:cyan,marker:blue'
   --layout=reverse
   --border=bottom
-  --height 99%
+  --height 100%
   --info=inline
   --preview-window border-sharp
   --border-label='f1: install, f2:uninstall'
@@ -15,16 +24,16 @@ fzf_args=(
   --preview-label-pos='bottom'
 )
 
-yay -Slq | fzf "${fzf_args[@]}" \
+"$aur" -Slq | fzf "${fzf_args[@]}" \
   --prompt='Install> ' \
-  --preview 'yay -Si {1}' \
-  --bind 'alt-i,f1:change-prompt(Install> )+reload(yay -Slq)+change-preview(yay -Si {1})' \
-  --bind 'alt-u,f2:change-prompt(Uninstall> )+reload(yay -Qqe)+change-preview(yay -Qi {1})' \
+  --preview '"$aur" -Si {1}' \
+  --bind 'alt-i,f1:change-prompt(Install> )+reload("$aur" -Slq)+change-preview("$aur" -Si {1})' \
+  --bind 'alt-u,f2:change-prompt(Uninstall> )+reload("$aur" -Qqe)+change-preview("$aur" -Qi {1})' \
   --bind '/,f3:toggle-preview' \
   --bind 'enter:become(
     if [ "$FZF_PROMPT" = "Install> " ]; then
-      echo {+} | xargs -ro yay -S --noconfirm && sleep 1 && clear
+      echo {+} | xargs -ro "$aur" -S --noconfirm && sleep 1 && clear
     else
-      echo {+} | xargs -ro yay -Rns --noconfirm && sleep 1 && clear
+      echo {+} | xargs -ro "$aur" -Rns --noconfirm && sleep 1 && clear
     fi
   )'

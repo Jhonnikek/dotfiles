@@ -1,0 +1,16 @@
+#!/bin/bash
+route=$(fd -H -E .git --base-directory $HOME | fzf --info=inline --height=50% --layout=reverse --preview-window border-sharp --preview '
+    if [ -d "$HOME/"{} ]; then
+      ls --color=always "$HOME/"{}
+    elif [ -f "$HOME/"{} ]; then
+      cat "$HOME/"{}
+    fi
+  ')
+
+if [[ -n "$route" ]]; then
+  if [ -d "$HOME/$route" ]; then
+    cd "$HOME/$route" && nvim .
+  elif [ -f "$HOME/$route" ]; then
+    nvim "$HOME/$route"
+  fi
+fi
