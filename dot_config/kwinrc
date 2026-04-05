@@ -1,8 +1,6 @@
 [Desktops]
 Id_1=bdae4928-78f9-4c77-a1eb-096226da53ed
 Id_2=cedbdc8e-31eb-4517-b084-7412358b36ee
-Id_3=e9268dec-11a1-484a-b973-427d8eea944b
-Id_4=e26319bc-69fe-4f4d-833a-6fa75348e509
 Number=2
 Rows=1
 
@@ -10,6 +8,7 @@ Rows=1
 BorderActivate=9
 
 [Plugins]
+desktopchangeosdEnabled=false
 minimizeallEnabled=true
 translucencyEnabled=true
 
@@ -133,7 +132,7 @@ InputMethod[$e]=/usr/share/applications/org.kde.plasma.keyboard.desktop
 VirtualKeyboardEnabled=false
 
 [Xwayland]
-Scale=1.25
+Scale=1
 
 [org.kde.kdecoration2]
 library=org.kde.breeze
